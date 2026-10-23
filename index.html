@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>별에게 보내는 마음 — 한국소아암재단 추모기부</title>
+<meta name="description" content="그리운 이름으로, 아픈 아이들에게 내일을 선물하세요. 한국소아암재단 추모기부." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<script>
+/* 홈페이지(워드프레스) 안에 끼워 넣어 열렸는지 확인: ?embed=1 이거나 다른 페이지 안의 창(iframe)으로 열린 경우 */
+(function(){ var on=/[?&]embed=1/.test(location.search); try{ on=on||window.self!==window.top; }catch(e){ on=true; }
+  if(on) document.documentElement.classList.add('embed'); })();
+</script>
+<style>
+  :root{
+    --night-deep:#12142A;
+    --night:#1B1E3E;
+    --night-soft:#262A55;
+    --dawn:#8E8BC0;
+    --dawn-light:#EDEAF5;
+    --ivory:#FBF9F3;
+    --ink:#23264A;
+    --ink-soft:#565A83;
+    --star:#EBCB80;
+    --star-deep:#C9A250;
+    --rose:#D9A0AC;
+    --serif:'Gowun Batang', serif;
+    --sans:'Noto Sans KR', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--ivory);line-height:1.75;font-weight:300;}
+  img{max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+  .serif{font-family:var(--serif);}
+  .eyebrow{font-size:13px;letter-spacing:.35em;font-weight:400;}
+  .btn{display:inline-block;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:500;cursor:pointer;border:1px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease;font-family:var(--sans);}
+  .btn:hover{transform:translateY(-2px);}
+  .btn:focus-visible{outline:3px solid var(--star);outline-offset:3px;}
+  .btn-star{background:var(--star);color:var(--night-deep);}
+  .btn-star:hover{background:#F2D896;}
+  .btn-ghost-light{background:transparent;color:#EDEAF5;border-color:rgba(237,234,245,.45);}
+  .btn-ghost-light:hover{border-color:#EDEAF5;background:rgba(237,234,245,.08);}
+  .btn-night{background:var(--ink);color:var(--ivory);}
+  .btn-night:hover{background:#33376A;}
+  .btn-ghost-dark{background:transparent;color:var(--ink);border-color:rgba(35,38,74,.35);}
+  .btn-ghost-dark:hover{border-color:var(--ink);}
+
+  /* ---------- header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s ease, box-shadow .3s ease;}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  header.scrolled{background:rgba(18,20,42,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(237,234,245,.08);}
+  .logo{display:flex;align-items:center;gap:12px;color:#EDEAF5;font-weight:500;font-size:15px;letter-spacing:.02em;}
+  .logo-chip{display:flex;align-items:center;}
+  .logo-chip img{height:24px;display:block;}
+  .logo-sub{color:rgba(237,234,245,.85);font-size:12.5px;font-weight:400;letter-spacing:.03em;padding-left:11px;border-left:1px solid rgba(237,234,245,.3);}
+  footer .logo-chip img{height:28px;}
+  nav{display:flex;gap:28px;font-size:14px;color:rgba(237,234,245,.75);}
+  nav a:hover{color:#fff;}
+  .nav-cta{color:var(--star) !important;font-weight:500;}
+  @media(max-width:720px){nav a:not(.nav-cta){display:none;}}
+
+  /* ---------- hero (night) ---------- */
+  .hero{position:relative;min-height:100svh;background:linear-gradient(180deg,var(--night-deep) 0%,var(--night) 62%,var(--night-soft) 100%);color:#EDEAF5;display:flex;align-items:center;overflow:hidden;}
+  .hero-sky{position:absolute;inset:0;pointer-events:none;}
+  .hero-inner{position:relative;z-index:2;padding:140px 0 120px;text-align:center;width:100%;}
+  .hero .eyebrow{color:var(--star);margin-bottom:26px;}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,6.5vw,68px);line-height:1.35;letter-spacing:.01em;}
+  .hero h1 .glow{color:var(--star);}
+  .hero p.lead{margin:26px auto 0;max-width:520px;font-size:clamp(15px,2vw,17px);color:rgba(237,234,245,.82);font-weight:300;}
+  .hero-ctas{margin-top:44px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .hero-note{margin-top:22px;font-size:13px;color:rgba(237,234,245,.5);}
+  .section-head h2,.section-head p{word-break:keep-all;}
+  /* ---------- 새벽이 오는 수평선 ---------- */
+  .hero{background:linear-gradient(180deg,#0F1230 0%,#1A1F4C 34%,#33366E 58%,#6A5487 76%,#C98F86 90%,#EFC08E 100%);}
+  .hero-sky{-webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 85%);mask-image:linear-gradient(180deg,#000 45%,transparent 85%);}
+  .dawn-sun{position:absolute;left:50%;bottom:-300px;width:min(900px,120vw);height:560px;transform:translateX(-50%);border-radius:50%;z-index:1;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(255,234,184,.95),rgba(255,196,138,.6) 38%,rgba(255,170,120,.18) 70%,rgba(255,170,120,0) 100%);filter:blur(4px);
+    animation:dawnRise 5s cubic-bezier(.2,.7,.2,1) both,dawnBreath 7s ease-in-out 5s infinite;}
+  .dawn-haze{position:absolute;left:0;right:0;bottom:0;height:46%;z-index:1;pointer-events:none;
+    background:radial-gradient(70% 90% at 50% 100%,rgba(255,200,150,.30),rgba(255,200,150,0) 70%);animation:dawnFade 5s ease-out both;}
+  .dawn-hills{position:absolute;left:-2%;right:auto;bottom:-1px;width:104%;height:clamp(90px,12vw,170px);z-index:1;pointer-events:none;display:block;}
+  @keyframes dawnRise{from{transform:translate(-50%,120px);opacity:.25;}to{transform:translate(-50%,0);opacity:1;}}
+  @keyframes dawnBreath{0%,100%{opacity:1;}50%{opacity:.86;}}
+  @keyframes dawnFade{from{opacity:0;}to{opacity:1;}}
+  .hero-inner{padding-bottom:clamp(170px,20vw,240px);}
+  .hero h1{font-family:'Song Myung','Gowun Batang',serif;font-weight:400;letter-spacing:.01em;font-size:clamp(32px,6.9vw,78px);word-break:keep-all;text-shadow:0 2px 24px rgba(10,12,40,.35);}
+  .hero h1 .glow{color:#FFD996;text-shadow:0 0 28px rgba(255,200,120,.5);}
+  .hero p.lead{max-width:600px;word-break:keep-all;color:rgba(250,242,238,.9);}
+  .hero .btn-star{box-shadow:0 10px 32px rgba(255,200,120,.32);}
+  .hero .btn-ghost-light{background:rgba(255,255,255,.06);backdrop-filter:blur(4px);}
+  @media (prefers-reduced-motion: reduce){.dawn-sun,.dawn-haze{animation:none;}}
+  /* ---------- 표지 생동감: 등장 연출 · 금빛 결 · 별똥별 · 새벽 반딧불 · 시차 · 별 켜기 ---------- */
+  .hero .eyebrow,.hero p.lead,.hero-ctas,.scroll-hint{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+  .hero .eyebrow{transition-delay:.15s;} .hero p.lead{transition-delay:1.7s;} .hero-ctas{transition-delay:2.1s;} .scroll-hint{transition-delay:2.8s;}
+  .hero.ready .eyebrow,.hero.ready p.lead,.hero.ready .hero-ctas{opacity:1;transform:none;}
+  .hero.ready .scroll-hint{opacity:1;transform:translateX(-50%);}
+  .scroll-hint{transform:translate(-50%,14px);}
+  .hero h1 .w{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(.35em);transition:opacity 1.1s ease,filter 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(.45s + var(--i)*.11s);}
+  .hero.ready h1 .w{opacity:1;filter:blur(0);transform:none;}
+  .hero h1 .glow .w{background:linear-gradient(100deg,#FFD996 0%,#FFD996 40%,#FFF6DE 50%,#FFD996 60%,#FFD996 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero.ready h1 .glow .w{animation:goldSweep 6s ease-in-out 3.2s infinite;}
+  @keyframes goldSweep{0%{background-position:100% 0;}35%,100%{background-position:-50% 0;}}
+  .hero .btn-star{position:relative;overflow:hidden;}
+  .hero .btn-star::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);}
+  .hero.ready .btn-star::after{animation:btnShine 5s ease-in-out 3.6s infinite;}
+  @keyframes btnShine{0%{left:-60%;}25%,100%{left:130%;}}
+  .hero .btn:hover{transform:translateY(-2px);}
+  .shoot{position:absolute;z-index:1;height:2px;width:var(--len,160px);border-radius:2px;pointer-events:none;transform-origin:100% 50%;
+    background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,244,214,.9));animation:shoot var(--dur,1.3s) ease-out forwards;}
+  .shoot::after{content:"";position:absolute;right:-2px;top:-2px;width:6px;height:6px;border-radius:50%;background:#FFF8E6;box-shadow:0 0 10px 3px rgba(255,236,190,.8);}
+  @keyframes shoot{0%{opacity:0;transform:rotate(var(--ang)) translateX(0) scaleX(.3);}12%{opacity:1;}100%{opacity:0;transform:rotate(var(--ang)) translateX(var(--dist,420px)) scaleX(1);}}
+  .ember{position:absolute;bottom:8%;z-index:1;width:var(--sz,4px);height:var(--sz,4px);border-radius:50%;pointer-events:none;background:#FFE6B0;box-shadow:0 0 8px 2px rgba(255,200,130,.65);opacity:0;animation:emberUp var(--d,12s) linear var(--dl,0s) infinite;}
+  @keyframes emberUp{0%{opacity:0;transform:translate(0,0);}12%{opacity:.9;}70%{opacity:.55;}100%{opacity:0;transform:translate(var(--dx,20px),-62vh);}}
+  .hero-sky,.dawn-sun,.dawn-haze,.dawn-hills{will-change:transform;}
+  .lit-star{position:absolute;z-index:1;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;pointer-events:none;background:#FFF8E6;box-shadow:0 0 12px 4px rgba(255,226,160,.85),0 0 40px 12px rgba(235,203,128,.35);animation:litIn 1.2s cubic-bezier(.2,.7,.2,1) both,twinkle 4s ease-in-out 1.2s infinite;}
+  .lit-star::before,.lit-star::after{content:"";position:absolute;left:50%;top:50%;background:linear-gradient(90deg,transparent,rgba(255,240,200,.9),transparent);}
+  .lit-star::before{width:46px;height:1px;margin:-.5px 0 0 -23px;} .lit-star::after{width:1px;height:46px;margin:-23px 0 0 -.5px;background:linear-gradient(180deg,transparent,rgba(255,240,200,.9),transparent);}
+  .lit-ring{position:absolute;z-index:1;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:1px solid rgba(255,226,160,.8);pointer-events:none;animation:ring 1.1s ease-out forwards;}
+  @keyframes litIn{from{transform:scale(0) rotate(-45deg);opacity:0;}to{transform:scale(1) rotate(0);opacity:1;}}
+  @keyframes ring{to{transform:scale(9);opacity:0;}}
+  .sky-tip{position:absolute;right:max(24px,calc(50% - 500px));bottom:calc(clamp(90px,12vw,170px) + 18px);z-index:2;font-size:12px;letter-spacing:.08em;color:rgba(255,240,220,.7);opacity:0;transition:opacity 1s ease 3.4s;pointer-events:none;}
+  .hero.ready .sky-tip{opacity:1;} .sky-tip.done{opacity:0 !important;transition:opacity .6s ease;}
+  .hero{cursor:default;} .hero.can-light{cursor:crosshair;}
+  @media(max-width:720px){.sky-tip{left:0;right:0;text-align:center;bottom:calc(clamp(90px,12vw,170px) + 44px);}}
+  @media (prefers-reduced-motion: reduce){
+    .hero .eyebrow,.hero p.lead,.hero-ctas,.scroll-hint,.hero h1 .w{transition:none !important;filter:none !important;}
+    .hero.ready h1 .glow .w,.hero.ready .btn-star::after{animation:none;}
+  }
+
+  .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.3em;color:rgba(237,234,245,.62);z-index:2;}
+  .scroll-hint::after{content:"";display:block;width:1px;height:34px;background:linear-gradient(180deg,rgba(237,234,245,.6),transparent);margin:10px auto 0;}
+  .star-dot{position:absolute;border-radius:50%;background:#fff;opacity:.7;}
+  @keyframes twinkle{0%,100%{opacity:.25;}50%{opacity:.95;}}
+
+  /* ---------- tracks (dawn transition begins) ---------- */
+  .tracks{background:linear-gradient(180deg,var(--night-soft) 0%, #3B3F73 45%, #6B6AA0 100%);color:#EDEAF5;padding:110px 0 130px;}
+  .section-head{text-align:center;max-width:560px;margin:0 auto 64px;}
+  .section-head .eyebrow{display:block;margin-bottom:18px;}
+  .section-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.8vw,38px);line-height:1.5;}
+  .section-head p{margin-top:16px;font-size:15px;opacity:.85;}
+  .tracks .eyebrow{color:var(--star);}
+  .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:920px){.track-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto;}}
+  .track-card{background:rgba(251,249,243,.06);border:1px solid rgba(237,234,245,.18);border-radius:20px;padding:34px 28px;transition:transform .25s ease, background .25s ease;display:flex;flex-direction:column;}
+  .track-card:hover{transform:translateY(-4px);background:rgba(251,249,243,.1);}
+  .track-card .t-ico{font-size:26px;color:var(--star);}
+  .track-card h3{font-family:var(--serif);font-size:19px;font-weight:700;margin:16px 0 10px;line-height:1.55;}
+  .track-card p{font-size:13.5px;color:rgba(237,234,245,.8);flex:1;}
+  .track-card .t-link{display:inline-block;margin-top:22px;font-size:13.5px;color:var(--star);font-weight:500;border-bottom:1px solid rgba(235,203,128,.4);padding-bottom:2px;align-self:flex-start;}
+  .track-card .t-link:hover{border-color:var(--star);}
+
+  /* ---------- memorial wall ---------- */
+  .wall{background:linear-gradient(180deg,#6B6AA0 0%, #8E8BC0 30%, #C9C3E4 75%, var(--dawn-light) 100%);padding:110px 0 130px;color:var(--ink);}
+  .wall .section-head{color:#F5F3FB;}
+  .wall .eyebrow{color:#FBEFD3;}
+  .sky-board{position:relative;background:var(--night-deep);border-radius:24px;height:460px;overflow:hidden;box-shadow:0 30px 60px rgba(27,30,62,.35);}
+  .sky-board::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,rgba(107,106,160,.35));pointer-events:none;}
+  /* ---------- 추모의 벽: 은하수와 새벽 지평선 ---------- */
+  .sky-board{background:radial-gradient(120% 80% at 50% 125%,#3A3470 0,rgba(58,52,112,0) 60%),linear-gradient(180deg,#0E1028 0%,#16193A 55%,#2A2756 100%);}
+  .sky-board::after{display:none;}
+  .sb-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .sb-band{position:absolute;left:-12%;right:-12%;top:14%;height:46%;transform:rotate(-12deg);filter:blur(7px);
+    background:radial-gradient(50% 50% at 50% 50%,rgba(190,180,255,.17),transparent 70%),radial-gradient(30% 42% at 28% 52%,rgba(255,200,220,.11),transparent 70%),radial-gradient(30% 42% at 72% 42%,rgba(160,200,255,.13),transparent 70%);
+    animation:sbBand 9s ease-in-out infinite alternate;}
+  @keyframes sbBand{0%{opacity:.75;transform:rotate(-12deg) scaleY(.92);}50%{opacity:1;transform:rotate(-11deg) scaleY(1.06);}100%{opacity:.85;transform:rotate(-13deg) scaleY(.96);}}
+  /* 은하수 결: 띠 안을 따라 빛 무늬가 천천히 흘러감 */
+  .sb-band::after{content:"";position:absolute;inset:-10% 0;opacity:.6;filter:blur(10px);
+    background:radial-gradient(18% 34% at 20% 50%,rgba(220,210,255,.20),transparent 70%),radial-gradient(14% 30% at 55% 40%,rgba(255,215,230,.16),transparent 70%),radial-gradient(16% 32% at 85% 58%,rgba(190,215,255,.18),transparent 70%);
+    background-size:90% 100%;background-repeat:repeat-x;animation:sbFlow 22s linear infinite;}
+  @keyframes sbFlow{from{background-position:0 0;}to{background-position:-120% 0;}}
+  /* 은하수 전체(빛 띠 + 별 무리)가 바람에 실린 듯 살랑살랑 */
+  .sb-milky{position:absolute;inset:0;animation:sbSway 16s ease-in-out infinite alternate;transform-origin:50% 45%;}
+  @keyframes sbSway{0%{transform:translate(-1.6%,.6%) rotate(-.8deg);}50%{transform:translate(.4%,-.8%) rotate(.3deg);}100%{transform:translate(1.6%,.4%) rotate(.9deg);}}
+  .sb-dot{position:absolute;border-radius:50%;background:#fff;}
+  .sb-dot.tw{animation:twinkle var(--tw,5s) ease-in-out var(--td,0s) infinite;}
+  .sb-glow{position:absolute;left:0;right:0;bottom:0;height:170px;background:radial-gradient(60% 100% at 50% 100%,rgba(255,190,140,.34),transparent 70%);animation:sbGlow 8s ease-in-out infinite;}
+  @keyframes sbGlow{0%,100%{opacity:.85;}50%{opacity:1;}}
+  .sb-hills{position:absolute;left:-2%;bottom:-1px;width:104%;height:clamp(60px,9vw,92px);display:block;}
+  .mem-name{position:absolute;transform:translate(-50%,0);margin-top:20px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:12px;letter-spacing:.03em;color:rgba(246,226,174,.78);pointer-events:none;text-shadow:0 1px 6px rgba(10,12,30,.8);transition:color .2s ease;}
+  .sky-board.crowded .mem-name{display:none;}
+  @media(max-width:720px){.mem-name{font-size:11px;max-width:96px;margin-top:16px;}}
+  @media (prefers-reduced-motion: reduce){.sb-band,.sb-band::after,.sb-milky,.sb-glow,.sb-dot.tw{animation:none;}}
+  .mem-star{position:absolute;background:none;border:none;cursor:pointer;color:var(--star);font-size:26px;line-height:1;transform:translate(-50%,-50%);transition:transform .2s ease;padding:8px;}
+  .mem-star:hover,.mem-star:focus-visible{transform:translate(-50%,-50%) scale(1.4);outline:none;color:#F6E2AE;}
+  .mem-star.small{font-size:16px;color:#D8D5EF;}
+  .mem-star.new{color:#F6E2AE;}
+  .mem-star.space{font-size:38px;color:#F6E2AE;text-shadow:0 0 18px rgba(235,203,128,.8);}
+  .mem-star.space:hover,.mem-star.space:focus-visible{transform:translate(-50%,-50%) scale(1.25);}
+
+  /* ---------- wing banners ---------- */
+  .wing{position:fixed;right:18px;top:50%;transform:translateY(-50%) translateX(20px);z-index:60;display:flex;flex-direction:column;gap:10px;opacity:0;pointer-events:none;transition:opacity .4s ease, transform .4s ease;}
+  .wing.show{opacity:1;pointer-events:auto;transform:translateY(-50%);}
+  .wing-item{display:flex;flex-direction:column;align-items:center;gap:6px;width:92px;padding:16px 10px 14px;border-radius:16px;text-align:center;font-size:12.5px;font-weight:500;line-height:1.45;box-shadow:0 12px 30px rgba(18,20,42,.35);transition:transform .2s ease;}
+  .wing-item:hover{transform:translateY(-3px);}
+  .wing-item .w-ico{font-size:18px;line-height:1;}
+  .wing-space{background:var(--night-deep);color:#EDEAF5;border:1px solid rgba(235,203,128,.5);}
+  .wing-space .w-ico{color:var(--star);}
+  .wing-give{background:var(--star);color:var(--night-deep);}
+  .wing-visit{background:var(--night-soft);color:#EDEAF5;border:1px solid rgba(237,234,245,.25);}
+  .wing-visit .w-ico{color:var(--star);}
+  .wing-ask{background:#fff;color:var(--ink);border:1px solid rgba(35,38,74,.18);}
+  .wing-ask .w-ico{color:#8B6ABF;}
+  .wing-close{align-self:flex-end;background:rgba(18,20,42,.55);color:#EDEAF5;border:none;width:22px;height:22px;border-radius:50%;font-size:12px;line-height:1;cursor:pointer;margin-bottom:-2px;}
+  .wing-close:hover{background:rgba(18,20,42,.8);}
+  @media(max-width:1100px){.wing{display:none;}}
+  @keyframes starIn{from{opacity:0;transform:translate(-50%,-50%) scale(0);}to{opacity:1;transform:translate(-50%,-50%) scale(1);}}
+  .mem-star.pop{animation:starIn .6s ease both;}
+  .wall-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;color:rgba(237,234,245,.7);font-size:14.5px;line-height:1.95;z-index:2;opacity:0;transition:opacity 1.2s ease;pointer-events:none;}
+  .wall-empty.on{opacity:1;pointer-events:auto;}
+  .wall-empty .we-star{font-size:30px;color:var(--star);animation:weGlow 2.6s ease-in-out infinite;}
+  @keyframes weGlow{0%,100%{opacity:.4;transform:scale(.9);text-shadow:0 0 0 rgba(235,203,128,0);}50%{opacity:1;transform:scale(1.12);text-shadow:0 0 24px rgba(235,203,128,.75);}}
+  .wall-empty a{margin-top:8px;font-size:13px;color:var(--star);border-bottom:1px solid rgba(235,203,128,.45);}
+  .wall-empty a:hover{color:#F2D896;}
+  .wall-empty{padding-bottom:clamp(40px,7vw,70px);}
+  .wall-empty .we-float{display:flex;flex-direction:column;align-items:center;gap:6px;animation:weFloat 6s ease-in-out infinite;}
+  @keyframes weFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .wall-empty .we-slot{position:relative;width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;}
+  .wall-empty .we-ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(235,203,128,.55);animation:weRing 3.2s ease-in-out infinite;}
+  @keyframes weRing{0%,100%{transform:scale(.85);opacity:.5;}50%{transform:scale(1.12);opacity:1;}}
+  .wall-empty .we-title{font-family:'Song Myung',var(--serif);font-size:clamp(19px,2.6vw,24px);color:#F6E7C1;letter-spacing:.02em;margin-bottom:2px;}
+  .wall-empty p{word-break:keep-all;}
+  @media (prefers-reduced-motion: reduce){.wall-empty .we-star,.wall-empty .we-float,.wall-empty .we-ring{animation:none;}}
+  .mem-star.fading{opacity:0;transform:translate(-50%,-50%) scale(.4);transition:opacity .45s ease,transform .45s ease;pointer-events:none;}
+  .star-tip{position:absolute;z-index:5;max-width:280px;background:#FBF9F3;color:var(--ink);border-radius:14px;padding:16px 18px;font-size:13.5px;line-height:1.7;box-shadow:0 14px 34px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;}
+  .star-tip.show{opacity:1;pointer-events:auto;}
+  .star-tip .who{display:block;margin-top:8px;font-size:12px;color:var(--ink-soft);}
+  .star-tip{width:max-content;max-width:min(280px,calc(100% - 24px));overflow-wrap:anywhere;word-break:keep-all;}
+  .star-tip .tip-msg{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;overflow-wrap:anywhere;}
+  .star-tip .tip-name{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:170px;}
+  .wall-count{position:absolute;top:20px;left:24px;font-size:12.5px;color:rgba(237,234,245,.6);letter-spacing:.08em;z-index:3;}
+  .wall-actions{margin-top:34px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+  /* ---------- impact ---------- */
+  .impact{background:var(--dawn-light);padding:110px 0;}
+  .impact .eyebrow{color:#8B6ABF;}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:760px){.impact-grid{grid-template-columns:1fr;}}
+  .impact-card{background:#fff;border-radius:20px;padding:36px 30px;text-align:center;border:1px solid rgba(35,38,74,.06);transition:transform .25s ease, box-shadow .25s ease;}
+  .impact-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(35,38,74,.1);}
+  .impact-card .amt{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--ink);}
+  .impact-card .amt small{font-size:16px;font-weight:400;}
+  .impact-card .line{width:28px;height:2px;background:var(--star-deep);margin:16px auto;}
+  .impact-card p{font-size:14.5px;color:var(--ink-soft);}
+  .impact-note{text-align:center;margin-top:28px;font-size:13px;color:var(--ink-soft);}
+  .impact-cta{text-align:center;margin-top:40px;}
+
+  /* ---------- funeral ---------- */
+  .funeral{background:var(--ivory);padding:110px 0;}
+  .funeral-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;}
+  @media(max-width:820px){.funeral-inner{grid-template-columns:1fr;gap:40px;}}
+  .funeral .eyebrow{color:#8B6ABF;}
+  .funeral h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.6vw,36px);line-height:1.55;margin:18px 0 20px;}
+  .funeral p.body{font-size:15px;color:var(--ink-soft);max-width:440px;}
+  .f-list{margin-top:30px;display:grid;gap:16px;}
+  .f-item{display:flex;gap:16px;align-items:flex-start;}
+  .f-item .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--night);color:var(--star);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin-top:2px;}
+  .f-item h4{font-size:15px;font-weight:500;margin-bottom:2px;}
+  .f-item p{font-size:13.5px;color:var(--ink-soft);}
+  .f-card{background:var(--night);color:#EDEAF5;border-radius:24px;padding:44px 40px;position:relative;overflow:hidden;}
+  .f-card .fc-eyebrow{font-size:12px;letter-spacing:.3em;color:var(--star);margin-bottom:16px;}
+  .f-card h3{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.6;margin-bottom:14px;}
+  .f-card p{font-size:14px;color:rgba(237,234,245,.75);margin-bottom:26px;}
+
+  /* ---------- family support ---------- */
+  .family{background:linear-gradient(180deg,var(--ivory),#F3EEE2);padding:100px 0;}
+  .family-inner{text-align:center;max-width:620px;margin:0 auto;}
+  .family .eyebrow{color:#B0812F;}
+  .family h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.4vw,34px);line-height:1.6;margin:18px 0 20px;}
+  .family p{font-size:15px;color:var(--ink-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:#F3EEE2;padding:0 0 100px;}
+  .faq-list{max-width:720px;margin:0 auto;display:grid;gap:12px;}
+  .faq-item{background:#fff;border-radius:16px;border:1px solid rgba(35,38,74,.08);overflow:hidden;}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-family:var(--sans);}
+  .faq-q .fq-num{color:var(--star-deep);font-family:var(--serif);font-weight:700;font-size:14px;flex:none;}
+  .faq-q .fq-text{flex:1;font-size:15px;font-weight:500;color:var(--ink);}
+  .faq-q .fq-chev{flex:none;width:20px;height:20px;color:var(--ink-soft);transition:transform .25s ease;}
+  .faq-item.open .fq-chev{transform:rotate(180deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-a-inner{padding:0 24px 22px 58px;font-size:14px;color:var(--ink-soft);line-height:1.8;}
+  .faq-a-inner a{color:#8B6ABF;border-bottom:1px solid #C9C3E4;}
+  .faq-contact{text-align:center;margin-top:30px;font-size:13.5px;color:var(--ink-soft);}
+  .faq-contact a{color:var(--ink);font-weight:500;border-bottom:1px solid rgba(35,38,74,.25);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--night-deep);color:rgba(237,234,245,.65);padding:64px 0 48px;font-size:13px;}
+  .foot-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  footer .logo{margin-bottom:16px;}
+  footer p{max-width:380px;line-height:1.9;}
+  .foot-links{display:grid;gap:8px;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(237,234,245,.1);font-size:12px;color:rgba(237,234,245,.4);}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;}
+  }
+
+  /* ---------- 홈페이지 안에 끼워 넣었을 때 (embed) ---------- */
+  html.embed header, html.embed footer, html.embed .wing, html.embed .scroll-hint{display:none !important;}
+  html.embed .hero{min-height:720px;}
+  html.embed .hero-inner{padding-top:110px;}
+  html.embed .ember{animation-name:emberUpE;}
+  @keyframes emberUpE{0%{opacity:0;transform:translate(0,0);}12%{opacity:.9;}70%{opacity:.55;}100%{opacity:0;transform:translate(var(--dx,20px),-440px);}}
+  html.embed, html.embed body{overflow:hidden;}
+  /* ▼ 조화 대신 기부(모바일 부고장) 숨김 스위치 — 다시 보이게 하려면 아래 한 줄만 지우세요 ▼ */
+  [data-feature="funeral"]{display:none !important;}
+
+  /* ---------- 모바일 부고장 '준비 중' 안내 ---------- */
+  .soon-scrim{position:fixed;inset:0;z-index:200;background:rgba(10,12,30,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+  .soon-scrim.on{opacity:1;pointer-events:auto;}
+  html.embed .soon-scrim{position:absolute;align-items:flex-start;}
+  .soon-card{position:relative;width:min(420px,100%);background:linear-gradient(180deg,#1B1E3E,#2A2756);color:#EDEAF5;border:1px solid rgba(235,203,128,.35);border-radius:22px;padding:38px 30px 28px;text-align:center;
+    box-shadow:0 30px 70px rgba(5,6,20,.5),0 0 60px rgba(235,203,128,.12);transform:translateY(16px) scale(.97);transition:transform .45s cubic-bezier(.2,.7,.2,1);}
+  .soon-scrim.on .soon-card{transform:none;}
+  .soon-card .sc-star{display:inline-flex;width:62px;height:62px;border-radius:50%;align-items:center;justify-content:center;font-size:26px;color:#FFE6A8;margin-bottom:16px;
+    background:radial-gradient(circle,rgba(235,203,128,.28),rgba(235,203,128,0) 70%);text-shadow:0 0 14px rgba(255,220,150,.9);animation:scGlow 2.6s ease-in-out infinite;}
+  @keyframes scGlow{0%,100%{transform:scale(.92);opacity:.8;}50%{transform:scale(1.08);opacity:1;}}
+  .soon-card h3{font-family:'Song Myung',var(--serif);font-weight:400;font-size:23px;color:#F6E7C1;margin-bottom:12px;}
+  .soon-card p{font-size:14.5px;line-height:1.85;color:rgba(237,234,245,.82);word-break:keep-all;}
+  .soon-card .sc-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px;}
+  .soon-card .sc-btns .btn{padding:12px 26px;font-size:14px;}
+  .soon-card .sc-x{position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(237,234,245,.55);font-size:22px;cursor:pointer;line-height:1;padding:4px;}
+  .soon-card .sc-x:hover{color:#fff;}
+  @media (prefers-reduced-motion: reduce){.soon-card .sc-star{animation:none;}.soon-card{transition:none;}}
+</style>
+<script>
+/* 사이트가 열린 위치(기본 주소)를 알아냅니다.
+   memorial.soaam.net 이나 Netlify 에서는 '' , GitHub Pages(아이디.github.io/memorial) 에서는 '/memorial' */
+window.SITE_BASE=(function(){
+  if(!/\.github\.io$/.test(location.hostname)) return '';
+  var m=location.pathname.match(/^\/([^\/]+)/);
+  return (m&&['space','spaces','apply','index.html','404.html'].indexOf(m[1])<0)?'/'+m[1]:'';
+})();
+document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
+/* '/'로 시작하는 사이트 안 링크에 기본 주소를 붙입니다 (나중에 만들어지는 링크 포함) */
+(function(){
+  var B=window.SITE_BASE; if(!B) return;
+  function fix(a){ var h=a.getAttribute('href'); if(h&&h.charAt(0)==='/'&&h.charAt(1)!=='/'&&h.indexOf(B+'/')!==0&&h!==B) a.setAttribute('href',B+h); }
+  function scan(root){ if(root.tagName==='A') fix(root); if(root.querySelectorAll) root.querySelectorAll('a[href^="/"]').forEach(fix); }
+  document.addEventListener('DOMContentLoaded',function(){
+    scan(document.body);
+    new MutationObserver(function(ms){ ms.forEach(function(m){
+      if(m.type==='attributes') fix(m.target); else m.addedNodes.forEach(function(n){ if(n.nodeType===1) scan(n); });
+    }); }).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['href']});
+  });
+})();
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="logo-chip"><img src="data:image/png;base64,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" alt="한국소아암재단 로고" /></span><span class="logo-sub">추모기부</span></a>
+    <nav>
+      <a href="#tracks">추모의 방법</a>
+      <a href="#wall">밤하늘 추모의 벽</a>
+      <a href="#impact">기부의 쓰임</a>
+      <a href="#funeral" data-feature="funeral">조화 대신 기부</a>
+      <a class="nav-cta" href="#tracks">추모 공간 신청하기</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-sky" id="heroSky" aria-hidden="true"></div>
+  <span class="dawn-haze" aria-hidden="true"></span>
+  <span class="dawn-sun" aria-hidden="true"></span>
+  <svg class="dawn-hills" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,96 C200,50 400,78 640,62 C880,46 1100,104 1440,66 L1440,170 L0,170Z" fill="#4A3A63" opacity=".78"/>
+    <path d="M0,132 C260,96 520,128 760,112 C1000,96 1220,132 1440,116 L1440,170 L0,170Z" fill="#262A55"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">한국소아암재단 추모기부</span>
+    <h1 class="serif">별에게 보내는 마음이<br /><span class="glow">한 아이의 내일</span>이 됩니다</h1>
+    <p class="lead">사랑하는 사람을 잃은 슬픔이, 병원에서 오늘을 견디는 아이에게 희망으로 닿도록. 그리운 이름으로 기부하고, 밤하늘에 별 하나를 켜 주세요.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-star" href="#tracks">추모 공간 신청하기</a>
+      <a class="btn btn-ghost-light" href="#wall">밤하늘 추모의 벽 보기</a>
+    </div>
+  </div>
+  <div class="scroll-hint">아래로</div>
+  <div class="sky-tip" id="skyTip" aria-hidden="true">✦ 하늘을 눌러 별을 켜 보세요</div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks" id="tracks">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">추모의 방법</span>
+      <h2 class="serif">어떤 마음으로 오셨나요</h2>
+      <p>추모의 모양은 저마다 다릅니다. 당신의 마음에 맞는 길을 골라 주세요.</p>
+    </div>
+    <div class="track-grid">
+      <div class="track-card reveal">
+        <div class="t-ico">✦</div>
+        <h3 class="serif">하늘로 떠난<br />아이를 기억하며</h3>
+        <p>아이의 이름과 사진, 좋아하던 것들로 추모 공간을 만듭니다. 가족과 친구들이 방명록에 추억을 남기고, 모인 기부금은 지금 투병 중인 아이의 치료비가 됩니다. 아이의 꿈이 다른 아이에게로 이어집니다.</p>
+        <a class="t-link" href="/apply/child">추모 공간 신청하기 →</a>
+      </div>
+      <div class="track-card reveal">
+        <div class="t-ico">✿</div>
+        <h3 class="serif">고인의 뜻을<br />기리며</h3>
+        <p>부모님, 배우자, 은사님… 소중한 분을 위한 추모 공간을 만들고, 그분의 이름으로 아픈 아이들을 돕습니다. 기일과 49재에 맞춰 고인을 기억하는 기부를 이어갈 수 있습니다. 유족에게는 금액 없이 마음만 전해집니다.</p>
+        <a class="t-link" href="/apply/adult">고인의 추모 공간 신청하기 →</a>
+      </div>
+      <div class="track-card reveal">
+        <div class="t-ico">✉</div>
+        <h3 class="serif">조화 대신 기부<br />모바일 부고장</h3>
+        <p>장례를 준비하는 상주를 위한 길입니다. 추모기부 링크가 담긴 모바일 부고장을 만들어 조문객에게 공유하세요. 조화와 부의금 대신 전해진 마음은 고인의 이름으로 소아암 어린이에게 닿습니다.</p>
+        <a class="t-link" href="https://checkout-green-memory.com/" target="_blank" rel="noopener">모바일 부고장 만들기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIAL WALL -->
+<section class="wall" id="wall">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">밤하늘 추모의 벽</span>
+      <h2 class="serif">추모 공간이 열릴 때마다,<br />별 하나가 켜집니다</h2>
+      <p>별에 마우스를 올리거나 누르면 그분의 사진과 이야기가 떠오릅니다.</p>
+    </div>
+    <div class="sky-board reveal" id="skyBoard">
+      <span class="wall-count" id="wallCount"></span>
+      <div class="star-tip" id="starTip" role="status"></div>
+    </div>
+    <div class="wall-actions reveal">
+      <a class="btn btn-star" href="/spaces/">추모 공간 방문하기</a>
+      <a class="btn" href="#tracks" style="background:transparent;color:var(--ink);border:1px solid rgba(35,38,74,.35);">추모 공간 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact" id="impact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">기부의 쓰임</span>
+      <h2 class="serif">그리움이 이렇게 쓰입니다</h2>
+      <p>추모기부는 소아암 아이들의 치료비와 가족 지원에 사용됩니다.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="amt">10<small>만 원</small></div>
+        <div class="line"></div>
+        <p>정기 검사와 상비약 등<br />투병에 꼭 필요한 비용이 됩니다</p>
+      </div>
+      <div class="impact-card reveal">
+        <div class="amt">100<small>만 원</small></div>
+        <div class="line"></div>
+        <p>항암치료 한 차례를<br />지원하는 힘이 됩니다</p>
+      </div>
+      <div class="impact-card reveal">
+        <div class="amt">1,000<small>만 원</small></div>
+        <div class="line"></div>
+        <p>조혈모세포 이식 등<br />고비용 치료의 기회가 됩니다</p>
+      </div>
+    </div>
+    <div class="impact-cta reveal">
+      <a class="btn btn-night" href="https://secure.donus.org/soaam/pay/step1?dontype=P40101&amp;theme=b009" target="_blank" rel="noopener">추모기부 하기</a>
+    </div>
+    <p class="impact-note reveal">기부금영수증이 발급되며, 국세청 연말정산 간소화에 자동 반영됩니다.</p>
+  </div>
+</section>
+
+<!-- FUNERAL -->
+<section class="funeral" id="funeral" data-feature="funeral">
+  <div class="wrap funeral-inner">
+    <div class="reveal">
+      <span class="eyebrow">조화·부의금 대신 기부</span>
+      <h2 class="serif">마지막 인사를,<br />가장 오래 남을 방식으로</h2>
+      <p class="body">조화는 시들지만, 아이의 회복은 평생 남습니다. 추모기부 링크가 담긴 모바일 부고장을 만들어 조문객에게 전해 보세요.</p>
+      <div class="f-list">
+        <div class="f-item">
+          <div class="n">1</div>
+          <div><h4>모바일 부고장 만들기</h4><p>고인의 이름과 빈소·발인 안내를 담은 부고장을 만들고, 추모기부 링크를 함께 넣습니다.</p></div>
+        </div>
+        <div class="f-item">
+          <div class="n">2</div>
+          <div><h4>조문객에게 카카오톡으로 공유</h4><p>부고장을 받은 조문객은 조화와 부의금 대신, 그 자리에서 바로 기부로 마음을 전할 수 있습니다.</p></div>
+        </div>
+        <div class="f-item">
+          <div class="n">3</div>
+          <div><h4>유족에게 마음만 전달</h4><p>기부 알림은 금액 없이 이름과 메시지만 카카오톡으로 전해집니다.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="f-card reveal">
+      <div class="fc-eyebrow">모바일 부고장</div>
+      <h3 class="serif">"조화 대신, 고인의 이름으로<br />소아암 어린이를 도와주세요"</h3>
+      <p>부고장 속 링크는 고인의 추모 공간으로 이어집니다. 조문객의 기부는 별이 되어 밤하늘 추모의 벽에 남습니다.</p>
+      <a class="btn btn-star" href="https://checkout-green-memory.com/" target="_blank" rel="noopener">모바일 부고장 만들기</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY SUPPORT -->
+<section class="family">
+  <div class="wrap family-inner reveal">
+    <span class="eyebrow">유가족 곁에</span>
+    <h2 class="serif">홀로 견디지 않으셔도 됩니다</h2>
+    <p>고인을 먼저 보낸 슬픔은 무엇으로도 대신할 수 없다는 것을 압니다. 추모 공간 신청이나 기부에 관해 궁금한 점이 있거나, 도움이 필요할 때 언제든 문을 두드려 주세요.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">자주 묻는 질문</span>
+      <h2 class="serif">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">1</span>
+          <span class="fq-text">추모기부란 무엇인가요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">추모기부는 소중한 사람의 삶과 뜻을 기억하며 고인의 이름으로 나눔을 실천하는 기부입니다. 고인을 향한 그리움과 사랑은 소아암 아이들의 치료와 회복을 돕는 새로운 희망으로 이어집니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">2</span>
+          <span class="fq-text">유가족이 아니어도 추모기부에 참여할 수 있나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">네. 유가족뿐 아니라 친척, 친구, 동료, 지인, 기업과 단체 등 고인을 기억하는 누구나 참여할 수 있습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">3</span>
+          <span class="fq-text">추모기부는 언제 할 수 있나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">장례 기간뿐 아니라 장례 이후, 고인의 기일이나 생일, 특별한 기념일 등 언제든 참여할 수 있습니다. 특별한 날짜가 아니더라도 고인이 생각나는 날 마음을 전해주셔도 됩니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">4</span>
+          <span class="fq-text">추모기부는 어떻게 참여하나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">한국소아암재단 추모기부 공간을 방문하여 '추모기부 참여하기' 버튼을 통해 일시기부로 참여할 수 있습니다. 또한, 모바일 부고장 만들기를 통해 조화나 조의금 대신에 한국소아암재단에 기부할 수 있습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">5</span>
+          <span class="fq-text">모바일 부고장은 언제 이용할 수 있나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">모바일 부고장 서비스는 현재 준비 중입니다. 더 따뜻하고 편리하게 이용하실 수 있도록 정성껏 준비하고 있으니 조금만 기다려 주세요. 준비가 끝나면 이 페이지에서 바로 만드실 수 있도록 안내해 드리겠습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">6</span>
+          <span class="fq-text">고인의 추모공간을 비공개로 만들 수 있나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">네 가능합니다. 추모 공간 신청하기 버튼을 누르고 신청 시 공개로 진행할지 비공개로 진행할지 선택할 수 있습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="fq-num">7</span>
+          <span class="fq-text">기부금영수증을 발급받을 수 있나요?</span>
+          <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">네. 기부금영수증은 실제 기부자의 개인 또는 법인 명의로 발급됩니다. 발급을 위해 기부자의 성명과 주민등록번호 또는 법인명과 사업자등록번호 등 필요한 정보가 정확하게 등록되어야 합니다.<br /><br />여러 사람의 조의금을 모아 한 번에 기부하는 경우에는 실제 기부자와 입금 방식에 따라 영수증 발급 방법이 달라질 수 있으므로 기부 전에 재단으로 문의해 주세요.</div></div>
+      </div>
+    </div>
+    <p class="faq-contact reveal">문의: <a href="tel:0236751146">02-3675-1146</a> · <a href="mailto:jjy@soaam.net">jjy@soaam.net</a></p>
+  </div>
+</section>
+
+<div class="wing" id="wing" aria-label="빠른 메뉴">
+  <button class="wing-close" id="wingClose" aria-label="빠른 메뉴 닫기">×</button>
+  <a class="wing-item wing-give" href="https://secure.donus.org/soaam/pay/step1?dontype=P40101&amp;theme=b009" target="_blank" rel="noopener"><span class="w-ico">♥</span>추모기부<br />하기</a>
+  <a class="wing-item wing-space" href="#tracks"><span class="w-ico">✦</span>추모 공간<br />신청하기</a>
+  <a class="wing-item wing-visit" href="/spaces/"><span class="w-ico">✦</span>추모 공간<br />방문하기</a>
+  <a class="wing-item wing-ask" href="https://www.soaam.net/qna" target="_blank" rel="noopener"><span class="w-ico">✉</span>1:1 문의</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><span class="logo-chip"><img src="data:image/png;base64,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" alt="한국소아암재단 로고" /></span></div>
+        <p>(04158) 서울시 마포구 큰우물로 75 501호<br />고유번호 101-82-08733 · 이사장 이성희<br />대표번호 02-3675-1145~6 · 이메일 soaam9191@soaam.net</p>
+      </div>
+      <div class="foot-links">
+        <a href="#tracks">추모 공간 신청하기</a>
+        <a href="#wall">밤하늘 추모의 벽</a>
+        <a href="#funeral" data-feature="funeral">조화 대신 기부</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Korea Childhood Cancer Foundation.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header on scroll */
+  var header = document.getElementById('header');
+  var wing = document.getElementById('wing');
+  var wingClosed = false;
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    if(!wingClosed) wing.classList.toggle('show', window.scrollY > 400);
+  }, {passive:true});
+  document.getElementById('wingClose').addEventListener('click', function(){
+    wingClosed = true;
+    wing.classList.remove('show');
+  });
+
+  /* hero decorative starfield */
+  var sky = document.getElementById('heroSky');
+  for (var i=0;i<90;i++){
+    var s=document.createElement('span');
+    s.className='star-dot';
+    var size=Math.random()*2.2+0.6;
+    s.style.width=size+'px';s.style.height=size+'px';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.opacity=(Math.random()*0.6+0.15).toFixed(2);
+    if(!reduce && Math.random()<0.5){
+      s.style.animation='twinkle '+(Math.random()*4+3).toFixed(1)+'s ease-in-out '+(Math.random()*4).toFixed(1)+'s infinite';
+    }
+    sky.appendChild(s);
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q');
+    var a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(other){
+        if(other!==item){ other.classList.remove('open'); other.querySelector('.faq-a').style.maxHeight=null; }
+      });
+      if(isOpen){ item.classList.remove('open'); a.style.maxHeight=null; }
+      else { item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; }
+    });
+  });
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* memorial wall */
+  var board=document.getElementById('skyBoard');
+  var tip=document.getElementById('starTip');
+  var countEl=document.getElementById('wallCount');
+  /* 별은 모두 실제로 개설된 추모 공간에서만 켜집니다 (예시 데이터 없음) */
+  var memories=[];
+  var total=0;
+
+  function renderCount(spaces){
+    var notes=Math.max(0,(total||0)-(spaces||0));
+    countEl.textContent=spaces?('추모 공간 '+spaces.toLocaleString('ko-KR')+'곳'+(notes?' · 함께 남긴 마음 '+notes.toLocaleString('ko-KR')+'개':'')):'';
+  }
+  renderCount(0);
+
+  /* 아직 별이 없을 때 보이는 안내 */
+  var wallEmpty=document.createElement('div');
+  wallEmpty.className='wall-empty';
+  wallEmpty.innerHTML='<div class="we-float"><span class="we-slot" aria-hidden="true"><span class="we-ring"></span><span class="we-star">✦</span></span>'
+    +'<p class="we-title">이 하늘은 첫 번째 별을 기다리고 있어요</p>'
+    +'<p>그리운 이름으로 추모 공간이 열리면,<br />이곳에 별 하나가 조용히 켜집니다.</p>'
+    +'<a href="#tracks">추모 공간 신청하기 →</a></div>';
+
+  /* 실서비스: m.photo에 추모 공간 대표 사진 URL이 들어오며(유족이 공개 동의한 경우에만),
+     사진이 없거나 비공개면 아래처럼 테마색 이니셜 아바타로 대체합니다. */
+  function avatarHTML(m){
+    if(m.photo) return '<img src="'+m.photo+'" alt="'+esc(m.name)+' 사진" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--star);flex:none;" />';
+    return '<span style="width:58px;height:58px;border-radius:50%;background:'+(m.hue||'#565A83')+';color:#FBF9F3;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;flex:none;border:2px solid var(--star);">'+esc(m.sym||(m.name||'✦').charAt(0))+'</span>';
+  }
+
+  var hideTimer=null;
+  function showTip(m){
+    if(m.space){
+      tip.innerHTML='<div style="display:flex;gap:12px;align-items:center;">'+avatarHTML(m)
+        +'<div style="min-width:0;"><strong class="tip-name" style="font-family:var(--serif);font-size:14.5px;">'+esc(m.name)+'</strong>'
+        +(m.from?'<span style="display:block;font-size:11px;color:var(--ink-soft);letter-spacing:.04em;">'+esc(m.from)+'</span>':'')+'</div></div>'
+        +'<div class="tip-msg" style="margin-top:10px;">“'+esc(m.msg)+'”</div>'
+        +'<a href="'+esc(m.url||'/spaces/')+'" style="display:inline-block;margin-top:10px;font-size:12px;color:#8B6ABF;border-bottom:1px solid #C9C3E4;">추모 공간 방문하기 →</a>';
+    } else if(m.anon){
+      tip.innerHTML='<strong style="font-family:var(--serif);font-size:14.5px;">✦</strong><br />가족과 가까운 이들이 함께 기억하는 별입니다.';
+    } else {
+      tip.innerHTML='<strong class="tip-name" style="font-family:var(--serif);font-size:14.5px;">'+esc(m.name)+'</strong><span class="tip-msg">“'+esc(m.msg)+'”</span>'+(m.from?'<span class="who">— '+esc(m.from)+'</span>':'');
+    }
+    /* 상자 실제 크기를 재서, 별 옆에 두되 벽 밖으로 나가지 않게 위치를 잡습니다 */
+    var box=tip.offsetParent||tip.parentNode, W=box.clientWidth, H=box.clientHeight;
+    var tw=tip.offsetWidth, th=tip.offsetHeight, gap=16, pad=12;
+    var sx=m.x/100*W, sy=m.y/100*H;
+    var left=(sx+gap+tw<=W-pad)? sx+gap : sx-gap-tw;           /* 오른쪽 공간이 없으면 왼쪽에 */
+    var top=sy-th/2;                                          /* 별 높이에 맞춰 가운데 정렬 */
+    if(left<pad){ left=Math.min(Math.max(pad,sx-tw/2),W-pad-tw); top=(sy+gap+th<=H-pad)? sy+gap : sy-gap-th; } /* 좌우 모두 좁으면 위·아래로 */
+    left=Math.max(pad,Math.min(left,W-pad-tw));
+    top=Math.max(pad,Math.min(top,H-pad-th));
+    tip.style.left=left+'px';
+    tip.style.top=top+'px';
+    tip.classList.add('show');
+  }
+  function scheduleHide(){ clearTimeout(hideTimer); hideTimer=setTimeout(function(){ tip.classList.remove('show'); },260); }
+  tip.addEventListener('mouseenter',function(){ clearTimeout(hideTimer); });
+  tip.addEventListener('mouseleave',scheduleHide);
+
+  function addStar(m, isNew){
+    var b=document.createElement('button');
+    b.className='mem-star'+(isNew?' new pop':'')+(m.space?' space':'');
+    b.style.left=m.x+'%'; b.style.top=m.y+'%';
+    b.textContent='✦';
+    b.setAttribute('aria-label',m.anon?'함께 기억하는 별':(m.name||'추모 메시지')+(m.space?' 추모 공간 별 — 사진과 이야기 보기':' 별 — 메시지 보기'));
+    /* 마우스 오버(또는 키보드 포커스)만으로 사진 카드가 열립니다. 클릭은 터치 기기용 대체 수단. */
+    b.addEventListener('mouseenter',function(){ clearTimeout(hideTimer); showTip(m); if(m.space&&m.key&&window.memorialApi&&memorialApi.ready()) memorialApi.prefetch({action:'space',slug:m.key}); });
+    b.addEventListener('mouseleave',scheduleHide);
+    b.addEventListener('focus',function(){ clearTimeout(hideTimer); showTip(m); });
+    b.addEventListener('blur',scheduleHide);
+    b.addEventListener('click',function(ev){
+      ev.stopPropagation();
+      clearTimeout(hideTimer); showTip(m);
+    });
+    board.appendChild(b);
+    if(m.space&&m.name){
+      var n=document.createElement('span'); n.className='mem-name'; n.textContent=m.name;
+      n.style.left=m.x+'%'; n.style.top=m.y+'%';
+      if(m.x<16) n.style.transform='translate(-16px,0)';                 /* 왼쪽 끝 별: 이름을 오른쪽으로 */
+      else if(m.x>84) n.style.transform='translate(calc(-100% + 16px),0)'; /* 오른쪽 끝 별: 이름을 왼쪽으로 */
+      board.appendChild(n);
+      b.addEventListener('mouseenter',function(){ n.style.color='#FFF1C9'; });
+      b.addEventListener('mouseleave',function(){ n.style.color=''; });
+    }
+  }
+  function esc(t){ var d=document.createElement('div'); d.textContent=t||''; return d.innerHTML; }
+
+  memories.forEach(function(m){ addStar(m,false); });
+
+  /* ---------- 실제 추모 공간 불러오기 ----------
+     공개용 웹앱이 연결되어 있고 개설된 공간이 하나 이상 있으면,
+     위의 예시 별 대신 실제 공간의 별로 바꿉니다. (없으면 예시가 그대로 보입니다) */
+  function hashOf(t){ var h=0; t=String(t||''); for(var i=0;i<t.length;i++){ h=(h*31+t.charCodeAt(i))|0; } return Math.abs(h); }
+  function placeStars(list){
+    /* 황금비 간격으로 고르게 흩뿌리고, 주소로 만든 값으로 살짝 흔들어 매번 같은 자리에 뜨게 합니다 */
+    list.forEach(function(m,i){
+      var j=(hashOf(m.key)%1000)/1000;
+      m.x=Math.round(8+((i*0.618034+j*0.15)%1)*84);
+      m.y=Math.round(13+((i*0.381966+j*0.35)%1)*56);
+    });
+    board.classList.toggle('crowded',list.length>28);
+  }
+  function showEmpty(){ if(!wallEmpty.parentNode) board.appendChild(wallEmpty); requestAnimationFrame(function(){ wallEmpty.classList.add('on'); }); }
+  var api=window.memorialApi&&memorialApi.ready()?memorialApi:null;
+  function drawWall(j,fromSaved){
+    board.querySelectorAll('.mem-star:not(.small),.mem-name').forEach(function(b){ b.remove(); });
+    tip.classList.remove('show');
+    if(!j||!j.ok||!j.stars||!j.stars.length){ total=0; renderCount(0); showEmpty(); return; }
+    if(wallEmpty.parentNode){ wallEmpty.classList.remove('on'); wallEmpty.remove(); }
+    var real=j.stars.map(function(s){
+      if(s.anon) return {anon:true,key:s.key,name:'',msg:''};
+      var hue=(s.theme&&/^#[0-9a-fA-F]{6}$/.test(s.theme.bg2||''))?s.theme.bg2:'';
+      return {space:true,key:s.key,name:s.name,msg:s.msg,from:s.from,photo:s.photo,sym:s.sym,hue:hue,url:'/space/'+s.slug};
+    });
+    placeStars(real);
+    /* 저장된 데이터로 그릴 때는 한꺼번에, 처음 받을 때는 짧은 간격으로 하나씩 켜집니다 */
+    var gap=(reduce||fromSaved)?0:Math.max(12,Math.min(40,600/real.length));
+    real.forEach(function(m,i){
+      var put=function(){ addStar(m,false); var b=board.lastElementChild; if(b&&!reduce) b.classList.add('pop'); };
+      if(gap) setTimeout(put,i*gap); else put();
+    });
+    total=j.totalStars; renderCount(j.spaceCount);
+    /* 다음 페이지 미리 준비: 최근 공간 몇 곳의 정보를 조용히 받아 둡니다 */
+    var idle=window.requestIdleCallback||function(f){ return setTimeout(f,600); };
+    idle(function(){ j.stars.filter(function(x){return !x.anon;}).slice(-8).forEach(function(x){ api.prefetch({action:'space',slug:x.slug}); }); });
+  }
+  if(api){
+    api.cached({action:'wall'},drawWall).catch(function(){ showEmpty(); });
+  } else {
+    showEmpty();
+  }
+  /* 은하수 · 새벽빛 · 지평선 */
+  (function(){
+    var seed=20261016; function rnd(){ seed=(seed*16807)%2147483647; return seed/2147483647; }
+    var deco=document.createElement('div'); deco.className='sb-deco'; deco.setAttribute('aria-hidden','true');
+    var h='<div class="sb-milky"><span class="sb-band"></span>';
+    var nDots=window.innerWidth<720?90:170;
+    for(var i=0;i<nDots;i++){
+      var x=rnd()*100, y=50-x*0.21+(rnd()-.5)*24, sz=(rnd()*1.6+.4).toFixed(1), tw=rnd()<.25;
+      h+='<span class="sb-dot'+(tw?' tw':'')+'" style="left:'+x.toFixed(2)+'%;top:'+y.toFixed(2)+'%;width:'+sz+'px;height:'+sz+'px;opacity:'+(rnd()*.65+.2).toFixed(2)+(tw?';--tw:'+(rnd()*4+3).toFixed(1)+'s;--td:'+(rnd()*4).toFixed(1)+'s':'')+'"></span>';
+    }
+    h+='</div><span class="sb-glow"></span><svg class="sb-hills" viewBox="0 0 1000 90" preserveAspectRatio="none"><path d="M0,55 C180,25 360,48 520,38 C700,26 860,62 1000,40 L1000,90 L0,90Z" fill="#2B2350" opacity=".92"/><path d="M0,75 C220,55 460,78 700,66 C860,58 940,74 1000,70 L1000,90 L0,90Z" fill="#1A1636"/></svg>';
+    deco.innerHTML=h;
+    board.insertBefore(deco,board.firstChild);
+  })();
+  /* small ambient stars */
+  for(var j=0;j<26;j++){
+    var d=document.createElement('span');
+    d.className='mem-star small'; d.textContent='·';
+    d.style.left=(Math.random()*94+3)+'%';
+    d.style.top=(Math.random()*72+5)+'%';
+    d.style.pointerEvents='none';
+    board.appendChild(d);
+  }
+  board.addEventListener('click',function(){ tip.classList.remove('show'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') tip.classList.remove('show'); });
+
+})();
+</script>
+
+<script>
+/* 표지 생동감 연출 */
+(function(){
+  var hero=document.getElementById('top'); if(!hero) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* 1) 제목을 단어 단위로 나눠 차례로 떠오르게 */
+  var h1=hero.querySelector('h1'), n=0;
+  (function split(node){
+    [].slice.call(node.childNodes).forEach(function(c){
+      if(c.nodeType===3){
+        var frag=document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(function(t){
+          if(!t) return;
+          if(/^\s+$/.test(t)){ frag.appendChild(document.createTextNode(t)); return; }
+          var w=document.createElement('span'); w.className='w'; w.style.setProperty('--i',n++); w.textContent=t; frag.appendChild(w);
+        });
+        node.replaceChild(frag,c);
+      } else if(c.nodeType===1 && c.tagName!=='BR'){ split(c); }
+    });
+  })(h1);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ hero.classList.add('ready'); }); });
+  if(reduce) return;
+
+  var sky=document.getElementById('heroSky');
+  /* 2) 별똥별 — 가끔 하늘 위쪽을 가로지름 */
+  function shoot(){
+    if(document.hidden) return;
+    var r=hero.getBoundingClientRect(); if(r.bottom<0) return;
+    var s=document.createElement('span'); s.className='shoot';
+    var ang=(Math.random()*20+18); /* 오른쪽 위 → 왼쪽 아래 */
+    s.style.left=(Math.random()*60+30)+'%'; s.style.top=(Math.random()*30+4)+'%';
+    s.style.setProperty('--ang',(180-ang)+'deg'); s.style.setProperty('--len',(Math.random()*90+110)+'px');
+    s.style.setProperty('--dist',(Math.random()*240+320)+'px'); s.style.setProperty('--dur',(Math.random()*.6+1.1).toFixed(2)+'s');
+    hero.appendChild(s); setTimeout(function(){ s.remove(); },2000);
+  }
+  setTimeout(shoot,2600);
+  setInterval(function(){ if(Math.random()<.7) shoot(); },4200);
+
+  /* 3) 새벽빛에서 떠오르는 반딧불 */
+  var mob=window.innerWidth<720, cnt=mob?12:22;
+  for(var i=0;i<cnt;i++){
+    var e=document.createElement('span'); e.className='ember';
+    e.style.left=(Math.random()*90+5)+'%';
+    e.style.setProperty('--sz',(Math.random()*3+2).toFixed(1)+'px');
+    e.style.setProperty('--d',(Math.random()*8+10).toFixed(1)+'s');
+    e.style.setProperty('--dl',(-Math.random()*16).toFixed(1)+'s');
+    e.style.setProperty('--dx',(Math.random()*80-40).toFixed(0)+'px');
+    hero.appendChild(e);
+  }
+
+  /* 4) 시차 — 마우스(PC)와 스크롤에 따라 하늘·해·언덕이 서로 다른 속도로 움직임 */
+  var sun=hero.querySelector('.dawn-sun'), haze=hero.querySelector('.dawn-haze'), hills=hero.querySelector('.dawn-hills');
+  var mx=0,my=0,tx=0,ty=0,sy=0,ticking=false;
+  function paint(){
+    ticking=false; tx+=(mx-tx)*.08; ty+=(my-ty)*.08;
+    var h=hero.offsetHeight||1, p=Math.min(1,Math.max(0,sy/h));
+    if(sky) sky.style.transform='translate('+(tx*-14)+'px,'+(ty*-10+sy*.25)+'px)';
+    if(sun){ sun.style.transform='translate(calc(-50% + '+(tx*10)+'px),'+(-p*140+ty*6)+'px) scale('+(1+p*.25)+')'; }
+    if(haze) haze.style.opacity=(1+p*.6).toFixed(2);
+    if(hills) hills.style.transform='translate('+(tx*-4)+'px,'+(p*-30)+'px)';
+    if(Math.abs(mx-tx)>.002||Math.abs(my-ty)>.002){ ticking=true; requestAnimationFrame(paint); }
+  }
+  function kick(){ if(!ticking){ ticking=true; requestAnimationFrame(paint); } }
+  /* 해가 떠오르는 첫 연출(5초)이 끝난 뒤부터 시차 적용 */
+  setTimeout(function(){
+    if(window.matchMedia('(hover:hover)').matches){
+      hero.addEventListener('mousemove',function(ev){ var r=hero.getBoundingClientRect(); mx=(ev.clientX-r.left)/r.width-.5; my=(ev.clientY-r.top)/r.height-.5; kick(); });
+      hero.addEventListener('mouseleave',function(){ mx=0; my=0; kick(); });
+    }
+    window.addEventListener('scroll',function(){ sy=window.scrollY; if(sy<window.innerHeight*1.2) kick(); },{passive:true});
+    if(sun){ sun.style.animation='dawnBreath 7s ease-in-out infinite'; }
+  },5000);
+
+  /* 5) 하늘을 누르면 그 자리에 별이 켜짐 (버튼·글자 위는 제외) */
+  var tip=document.getElementById('skyTip'), lit=0;
+  hero.classList.add('can-light');
+  hero.addEventListener('click',function(ev){
+    if(ev.target.closest('a,button,.w,p,.eyebrow')) return;
+    var r=hero.getBoundingClientRect(), x=ev.clientX-r.left, y=ev.clientY-r.top;
+    if(y>r.height*.82) return;
+    var st=document.createElement('span'); st.className='lit-star'; st.style.left=x+'px'; st.style.top=y+'px';
+    var rg=document.createElement('span'); rg.className='lit-ring'; rg.style.left=x+'px'; rg.style.top=y+'px';
+    hero.appendChild(st); hero.appendChild(rg); setTimeout(function(){ rg.remove(); },1200);
+    var stars=hero.querySelectorAll('.lit-star'); if(stars.length>12) stars[0].remove();
+    if(++lit===1 && tip){ tip.textContent='✦ 별 하나가 켜졌어요. 그리운 이름으로 진짜 별을 켜 주세요'; setTimeout(function(){ tip.classList.add('done'); },3600); }
+  });
+})();
+</script>
+<script>
+/* 홈페이지 안에 끼워 넣었을 때: 높이를 바깥 페이지에 알려 주고, 다른 페이지로 가는 링크는 큰 화면으로 엽니다 */
+(function(){
+  if(!document.documentElement.classList.contains('embed')) return;
+  var parentWin=window.parent;
+  function send(msg){ try{ parentWin.postMessage(msg,'*'); }catch(e){} }
+  var last=0;
+  function report(){ var h=Math.ceil(document.documentElement.getBoundingClientRect().height); if(Math.abs(h-last)>2){ last=h; send({type:'memorial-height',h:h}); } }
+  if('ResizeObserver' in window) new ResizeObserver(report).observe(document.body);
+  window.addEventListener('load',report); setInterval(report,1500); report();
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    var href=a.getAttribute('href')||'';
+    if(href.charAt(0)==='#'){                       /* 같은 페이지 안 이동 → 바깥 페이지를 그 위치로 스크롤 */
+      var t=href.length>1?document.getElementById(href.slice(1)):null;
+      if(t){ e.preventDefault(); send({type:'memorial-scroll',y:Math.max(0,t.getBoundingClientRect().top+window.scrollY)}); }
+      return;
+    }
+    if(a.target==='_blank') return;                 /* 새 탭 링크는 그대로 */
+    if(/^(mailto:|tel:)/.test(href)) return;
+    a.target='_top';                                /* 추모 공간·신청 페이지 등은 큰 화면으로 */
+  },true);
+})();
+</script>
+<script>
+/* 모바일 부고장: 서비스 준비 전까지 '준비 중' 안내를 띄웁니다.
+   준비가 끝나면 아래 OBIT_READY 를 true 로 바꾸면 원래 링크(체크아웃)로 바로 연결됩니다. */
+(function(){
+  var OBIT_READY=false;
+  if(OBIT_READY) return;
+  var scrim=document.createElement('div'); scrim.className='soon-scrim'; scrim.setAttribute('role','dialog'); scrim.setAttribute('aria-modal','true'); scrim.setAttribute('aria-labelledby','soonTitle');
+  scrim.innerHTML='<div class="soon-card"><button type="button" class="sc-x" aria-label="닫기">×</button>'
+    +'<span class="sc-star" aria-hidden="true">✦</span>'
+    +'<h3 id="soonTitle">모바일 부고장은 준비 중이에요</h3>'
+    +'<p>더 따뜻하고 편리한 모습으로 정성껏 준비하고 있어요.<br />조금만 기다려 주세요.</p>'
+    +'<p style="margin-top:10px;font-size:13.5px;color:rgba(237,234,245,.6);">그동안 추모 공간을 만들어<br />그리운 이름으로 마음을 전하실 수 있어요.</p>'
+    +'<div class="sc-btns"><a class="btn btn-star" href="#tracks" data-close>추모 공간 신청하기</a><button type="button" class="btn btn-ghost-light" data-close>확인</button></div></div>';
+  document.body.appendChild(scrim);
+  var lastFocus=null;
+  function open(ev){
+    lastFocus=ev.currentTarget||document.activeElement;
+    if(document.documentElement.classList.contains('embed')){
+      var r=(ev.currentTarget||ev.target).getBoundingClientRect();
+      scrim.style.height=document.documentElement.scrollHeight+'px';
+      scrim.querySelector('.soon-card').style.marginTop=Math.max(20,r.top+window.scrollY-260)+'px';
+    }
+    scrim.classList.add('on'); scrim.querySelector('[data-close]:not(a)').focus();
+  }
+  function close(){ scrim.classList.remove('on'); if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  document.querySelectorAll('a[href*="checkout-green-memory"]').forEach(function(a){
+    a.addEventListener('click',function(ev){ ev.preventDefault(); ev.stopPropagation(); open(ev); },true);
+  });
+  scrim.addEventListener('click',function(e){ if(e.target===scrim||e.target.closest('[data-close],.sc-x')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&scrim.classList.contains('on')) close(); });
+})();
+</script>
+</body>
+</html>
