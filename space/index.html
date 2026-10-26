@@ -635,6 +635,8 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var DONUS_URL='https://secure.donus.org/soaam/pay/step1?dontype=P40101&theme=b009';
+  /* 공간별 후원 링크: 관리자 페이지에서 정한 주소가 있으면 그 주소로, 없으면 기본 주소로 */
+  function giveUrl(){ var u=S&&S.donateUrl; return (u&&/^https:\/\/[^\s"'<>]+$/i.test(u))?u:DONUS_URL; }
   var NOTES_PAGE=12;
   var S=null, mine=[], notesShown=NOTES_PAGE, pickedSym='✦';
   var slug=(location.pathname.slice((window.SITE_BASE||'').length).match(/^\/space\/([a-z0-9][a-z0-9-]{1,39})\/?$/)||[])[1]
@@ -883,8 +885,9 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     renderNotes();
 
     /* 촛불 */
-    $('giveTitle').textContent=josa(nm,'을/를')+' 위해 기부하기';
-    $('ctaGive').textContent=josa(nm,'을/를')+' 위해 기부하기';
+    var giveLabel=(S.giveLabel&&String(S.giveLabel).trim())||josa(nm,'을/를')+' 위해 기부하기';   /* 관리자 페이지에서 정한 문구가 있으면 그 문구로 */
+    $('giveTitle').textContent=giveLabel;
+    $('ctaGive').textContent=giveLabel;
     var f=S.fund||{sum:0,donors:0};
     $('giveSum').innerHTML=f.donors
       ? '지금까지 <b>'+people(f.donors)+'</b>이 '+esc(josa(nm,'을/를'))+' 기억하며<br />함께해 주셨어요.<span class="raised">모인 마음 <b>'+f.sum.toLocaleString('ko-KR')+'원</b></span>'
@@ -977,7 +980,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   });
 
   /* ---------- 기부 ---------- */
-  $('donate').addEventListener('click',function(){ window.open(DONUS_URL,'_blank','noopener'); });
+  $('donate').addEventListener('click',function(){ window.open(giveUrl(),'_blank','noopener'); });
 
   /* ---------- 기억하는 날 알림 ---------- */
   var phone=$('ndPhone');
@@ -1041,7 +1044,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',function(){ lastSpy=''; onScroll(); });
     setTimeout(update,50);
 
-    $('navGive').addEventListener('click',function(){ window.open(DONUS_URL,'_blank','noopener'); });
+    $('navGive').addEventListener('click',function(){ window.open(giveUrl(),'_blank','noopener'); });
     function setMenu(open){
       panel.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false');
       btn.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');
