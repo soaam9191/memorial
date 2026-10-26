@@ -342,6 +342,9 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
             <input type="date" id="inOpenDate" />
           </div>
 
+          <label for="inApplicant">신청하시는 분 성함</label>
+          <input type="text" id="inApplicant" placeholder="예) 김하늘" maxlength="20" autocomplete="name" />
+
           <label for="inPhone">연락받으실 전화번호</label>
           <input type="tel" id="inPhone" placeholder="010-0000-0000" maxlength="13" />
 
@@ -585,6 +588,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     state.dream=document.getElementById('inDream').value.trim();
     state.story=document.getElementById('inStory').value.trim();
     state.openDate=document.getElementById('inOpenDate').value;
+    state.applicant=document.getElementById('inApplicant').value.trim();
     state.phone=document.getElementById('inPhone').value.trim();
     state.email=document.getElementById('inEmail').value.trim();
   }
@@ -608,7 +612,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     var r=document.getElementById('review');
     r.innerHTML=
       '<dt>추모 공간 이름</dt><dd class="serif" style="font-size:17px;">'+esc(state.name)+'의 세계</dd>'+
-      (state.rel?'<dt>신청하시는 분</dt><dd>아이의 '+esc(state.rel)+'</dd>':'')+
+      ((state.applicant||state.rel)?'<dt>신청하시는 분</dt><dd>'+esc(state.applicant||'')+(state.rel?(state.applicant?' · ':'')+'아이의 '+esc(state.rel):'')+'</dd>':'')+
       (favText()?'<dt>좋아하던 것</dt><dd>'+esc(favText())+'</dd>':'')+
       (state.dream?'<dt>아이의 꿈</dt><dd>'+esc(state.dream)+'</dd>':'')+
       '<dt>소개 글</dt><dd>'+(state.story?esc(state.story):'<span style="color:#9A9DBE;">아직 비어 있어요 — 담당자와 함께 채우실 수 있어요.</span>')+'</dd>'+
@@ -625,6 +629,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     if(!document.getElementById('agree').checked){ showToast('개인정보 및 사진(초상권) 활용 동의가 필요해요.'); return; }
     grab();
     if(!state.name){ showToast('아이의 이름을 적어 주세요.'); goStep(1); return; }
+    if(!state.applicant){ showToast('신청하시는 분의 성함을 적어 주세요.'); goStep(3); setTimeout(function(){ var el=document.getElementById('inApplicant'); if(el) el.focus(); },400); return; }
     if(!state.phone){ showToast('연락받으실 전화번호를 적어 주세요.'); goStep(3); return; }
     sendApplication();
   };
@@ -645,7 +650,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
       favs:favs, dream:state.dream||'', story:state.story||'',
       photos:state.photos.slice(0,10), mainIndex:state.mainIndex,
       vis:state.vis, openPref:state.openPref||'', openDate:state.openDate||'',
-      phone:state.phone||'', email:state.email||'', consent:true, theme:state.theme
+      applicant:state.applicant||'', phone:state.phone||'', email:state.email||'', consent:true, theme:state.theme
     }).then(function(){
       openDone();
       showToast('신청이 접수되었습니다. 담당자가 곧 연락드릴게요 ✦');
