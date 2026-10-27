@@ -447,6 +447,46 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   .candle .ember:nth-child(4){animation-delay:-2.5s;--ex:-6px;}
   @keyframes ember{0%{opacity:0;transform:translate(-50%,0) scale(1);}15%{opacity:1;}100%{opacity:0;transform:translate(calc(-50% + var(--ex,6px)),-70px) scale(.3);}}
 
+  /* 헌화: 기부가 생기면 촛불 대신 흰 국화가 놓이고, 기부자 수만큼 송이가 늘어납니다 */
+  .altar{position:relative;display:flex;flex-direction:column;align-items:center;margin:0 auto 6px;}
+  .altar .candle{transition:opacity .6s ease,transform .6s ease;}
+  .altar.has-flowers > .candle{display:none;}
+  .bouquet{display:none;position:relative;width:250px;max-width:100%;margin:-6px auto 4px;}
+  .altar.has-flowers .bouquet{display:block;}
+  .bouquet svg.bq{display:block;width:100%;height:auto;overflow:visible;}
+  .bouquet .bq-halo{position:absolute;left:50%;top:40%;width:260px;height:220px;margin:-110px 0 0 -130px;border-radius:50%;background:radial-gradient(closest-side,rgba(236,206,150,.22),rgba(236,206,150,0));animation:glow 3.4s ease-in-out infinite;pointer-events:none;}
+  .bq .kf{transform-box:view-box;transform-origin:125px 196px;transform:scale(0);opacity:0;}
+  .bouquet.on .bq .kf{animation:kfGrow 1.1s cubic-bezier(.2,.9,.25,1.15) var(--g,0s) forwards;}
+  .bq .kf-sway{transform-box:view-box;transform-origin:125px 196px;animation:kfSway var(--sd,5.6s) ease-in-out var(--d,0s) infinite;}
+  .bq .kf-head{transform-box:fill-box;transform-origin:50% 50%;animation:kfBreath 4.2s ease-in-out var(--d,0s) infinite;filter:drop-shadow(0 2px 3px rgba(70,60,40,.28));}
+  .bq .kf.back .kf-head{opacity:.96;}
+  .bq .kf.new .kf-head{filter:drop-shadow(0 2px 3px rgba(70,60,40,.28)) drop-shadow(0 0 6px rgba(255,214,140,.55));}
+  @keyframes kfGrow{0%{transform:scale(.2) rotate(var(--r0,0deg));opacity:0;}60%{opacity:1;}100%{transform:scale(1) rotate(0);opacity:1;}}
+  @keyframes kfSway{0%,100%{transform:rotate(-1.6deg);}50%{transform:rotate(1.6deg);}}
+  @keyframes kfBreath{0%,100%{transform:scale(.97);}50%{transform:scale(1.03);}}
+  .bq-count{font-family:var(--serif);font-size:13.5px;letter-spacing:.06em;color:var(--gold-deep,#9A7A3E);margin:2px 0 14px;opacity:0;transform:translateY(6px);transition:opacity .8s ease .6s,transform .8s ease .6s;}
+  .bouquet.on + .bq-count{opacity:1;transform:none;}
+  .bq-count b{font-weight:700;font-size:1.15em;}
+  .bq-count[hidden]{display:none;}
+
+  /* 촛불 모드: 기부자 수만큼 촛불이 하나씩 켜집니다 */
+  .cr{position:relative;width:260px;max-width:100%;height:178px;margin:0 auto;}
+  .cr-tray{position:absolute;left:50%;bottom:0;width:240px;height:52px;margin-left:-120px;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,#F4E7C6,#E2CC97 70%,#CFB277);box-shadow:0 6px 14px rgba(150,115,50,.18);}
+  .cr .candle.cr-c{position:absolute;margin:0;transform:translateX(-50%) scale(var(--s,1));transform-origin:50% 100%;}
+  .cr .cr-c .lit{position:absolute;inset:0;transform-origin:50% 40%;}
+  .cr .cr-c .lit .glow{display:none;}
+  .cr .cr-c .flame{animation-delay:var(--fd,0s);}
+  .cr .cr-c .lit{opacity:0;transform:scale(.3);}
+  .bouquet.on .cr .cr-c .lit{animation:lightUp .7s cubic-bezier(.2,.9,.3,1.2) var(--g,0s) forwards;}
+  @keyframes lightUp{0%{opacity:0;transform:scale(.3);}60%{opacity:1;}100%{opacity:1;transform:scale(1);}}
+  .cr .cr-c.new .flame{filter:drop-shadow(0 0 12px rgba(247,195,92,1));}
+  @media (prefers-reduced-motion: reduce){ .cr .cr-c .lit{opacity:1;transform:none;} .bouquet.on .cr .cr-c .lit{animation:none;} }
+  @media (prefers-reduced-motion: reduce){
+    .bq .kf{transform:none;opacity:1;}
+    .bouquet.on .bq .kf,.bq .kf-sway,.bq .kf-head,.bouquet .bq-halo{animation:none;}
+    .bq-count{opacity:1;transform:none;}
+  }
+
   /* 방명록 쪽지에 별빛이 스치는 효과 (마우스를 올리면) */
   .note{overflow:hidden;}
   .note::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,rgba(255,248,232,0),rgba(255,248,232,.08),rgba(255,248,232,0));transform:skewX(-12deg);transition:left .9s ease;}
@@ -595,7 +635,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   <section class="dawn" id="give">
     <div class="wrap dawn-grid">
       <div class="panel give" id="giveCard">
-        <div class="candle" aria-hidden="true"><span class="ember"></span><span class="ember"></span><span class="ember"></span><span class="ember"></span><span class="glow"></span><span class="flame"></span><span class="wick"></span><span class="wax"></span></div>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="kukHead" viewBox="-30 -30 60 60"><defs><radialGradient id="kukHeadg" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".75" stop-color="#FDFCF9"/><stop offset="1" stop-color="#ECE9E1"/></radialGradient></defs><ellipse cx="0.00" cy="-10.30" rx="4.20" ry="10.00" transform="rotate(0.0 0.00 -10.30)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="3.72" cy="-9.88" rx="4.20" ry="10.00" transform="rotate(16.4 3.72 -9.88)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="7.14" cy="-8.66" rx="4.20" ry="10.00" transform="rotate(32.7 7.14 -8.66)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="9.98" cy="-6.74" rx="4.20" ry="10.00" transform="rotate(49.1 9.98 -6.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="12.01" cy="-4.28" rx="4.20" ry="10.00" transform="rotate(65.5 12.01 -4.28)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="13.07" cy="-1.47" rx="4.20" ry="10.00" transform="rotate(81.8 13.07 -1.47)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="13.07" cy="1.47" rx="4.20" ry="10.00" transform="rotate(98.2 13.07 1.47)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="12.01" cy="4.28" rx="4.20" ry="10.00" transform="rotate(114.5 12.01 4.28)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="9.98" cy="6.74" rx="4.20" ry="10.00" transform="rotate(130.9 9.98 6.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="7.14" cy="8.66" rx="4.20" ry="10.00" transform="rotate(147.3 7.14 8.66)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="3.72" cy="9.88" rx="4.20" ry="10.00" transform="rotate(163.6 3.72 9.88)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="0.00" cy="10.30" rx="4.20" ry="10.00" transform="rotate(180.0 0.00 10.30)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-3.72" cy="9.88" rx="4.20" ry="10.00" transform="rotate(196.4 -3.72 9.88)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-7.14" cy="8.66" rx="4.20" ry="10.00" transform="rotate(212.7 -7.14 8.66)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-9.98" cy="6.74" rx="4.20" ry="10.00" transform="rotate(229.1 -9.98 6.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-12.01" cy="4.28" rx="4.20" ry="10.00" transform="rotate(245.5 -12.01 4.28)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-13.07" cy="1.47" rx="4.20" ry="10.00" transform="rotate(261.8 -13.07 1.47)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-13.07" cy="-1.47" rx="4.20" ry="10.00" transform="rotate(278.2 -13.07 -1.47)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-12.01" cy="-4.28" rx="4.20" ry="10.00" transform="rotate(294.5 -12.01 -4.28)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-9.98" cy="-6.74" rx="4.20" ry="10.00" transform="rotate(310.9 -9.98 -6.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-7.14" cy="-8.66" rx="4.20" ry="10.00" transform="rotate(327.3 -7.14 -8.66)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-3.72" cy="-9.88" rx="4.20" ry="10.00" transform="rotate(343.6 -3.72 -9.88)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.63" cy="-9.65" rx="3.36" ry="8.00" transform="rotate(9.0 1.63 -9.65)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="5.07" cy="-8.73" rx="3.36" ry="8.00" transform="rotate(29.0 5.07 -8.73)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="7.89" cy="-6.95" rx="3.36" ry="8.00" transform="rotate(49.0 7.89 -6.95)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="9.76" cy="-4.52" rx="3.36" ry="8.00" transform="rotate(69.0 9.76 -4.52)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="10.45" cy="-1.74" rx="3.36" ry="8.00" transform="rotate(89.0 10.45 -1.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="9.88" cy="1.05" rx="3.36" ry="8.00" transform="rotate(109.0 9.88 1.05)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="8.12" cy="3.53" rx="3.36" ry="8.00" transform="rotate(129.0 8.12 3.53)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="5.38" cy="5.39" rx="3.36" ry="8.00" transform="rotate(149.0 5.38 5.39)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.99" cy="6.40" rx="3.36" ry="8.00" transform="rotate(169.0 1.99 6.40)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-1.63" cy="6.45" rx="3.36" ry="8.00" transform="rotate(189.0 -1.63 6.45)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-5.07" cy="5.53" rx="3.36" ry="8.00" transform="rotate(209.0 -5.07 5.53)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-7.89" cy="3.75" rx="3.36" ry="8.00" transform="rotate(229.0 -7.89 3.75)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-9.76" cy="1.32" rx="3.36" ry="8.00" transform="rotate(249.0 -9.76 1.32)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-10.45" cy="-1.46" rx="3.36" ry="8.00" transform="rotate(269.0 -10.45 -1.46)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-9.88" cy="-4.25" rx="3.36" ry="8.00" transform="rotate(289.0 -9.88 -4.25)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-8.12" cy="-6.73" rx="3.36" ry="8.00" transform="rotate(309.0 -8.12 -6.73)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-5.38" cy="-8.59" rx="3.36" ry="8.00" transform="rotate(329.0 -5.38 -8.59)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-1.99" cy="-9.60" rx="3.36" ry="8.00" transform="rotate(349.0 -1.99 -9.60)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="2.38" cy="-8.91" rx="2.73" ry="6.50" transform="rotate(18.0 2.38 -8.91)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="5.32" cy="-7.54" rx="2.73" ry="6.50" transform="rotate(43.7 5.32 -7.54)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="7.21" cy="-5.31" rx="2.73" ry="6.50" transform="rotate(69.4 7.21 -5.31)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="7.67" cy="-2.66" rx="2.73" ry="6.50" transform="rotate(95.1 7.67 -2.66)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="6.61" cy="-0.12" rx="2.73" ry="6.50" transform="rotate(120.9 6.61 -0.12)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="4.24" cy="1.81" rx="2.73" ry="6.50" transform="rotate(146.6 4.24 1.81)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.03" cy="2.75" rx="2.73" ry="6.50" transform="rotate(172.3 1.03 2.75)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-2.38" cy="2.51" rx="2.73" ry="6.50" transform="rotate(198.0 -2.38 2.51)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-5.32" cy="1.14" rx="2.73" ry="6.50" transform="rotate(223.7 -5.32 1.14)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-7.21" cy="-1.09" rx="2.73" ry="6.50" transform="rotate(249.4 -7.21 -1.09)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-7.67" cy="-3.74" rx="2.73" ry="6.50" transform="rotate(275.1 -7.67 -3.74)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-6.61" cy="-6.28" rx="2.73" ry="6.50" transform="rotate(300.9 -6.61 -6.28)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-4.24" cy="-8.21" rx="2.73" ry="6.50" transform="rotate(326.6 -4.24 -8.21)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-1.03" cy="-9.15" rx="2.73" ry="6.50" transform="rotate(352.3 -1.03 -9.15)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="2.25" cy="-8.24" rx="2.10" ry="5.00" transform="rotate(27.0 2.25 -8.24)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="4.27" cy="-6.75" rx="2.10" ry="5.00" transform="rotate(59.7 4.27 -6.75)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="4.95" cy="-4.63" rx="2.10" ry="5.00" transform="rotate(92.5 4.95 -4.63)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="4.05" cy="-2.58" rx="2.10" ry="5.00" transform="rotate(125.2 4.05 -2.58)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.86" cy="-1.22" rx="2.10" ry="5.00" transform="rotate(157.9 1.86 -1.22)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-0.91" cy="-1.01" rx="2.10" ry="5.00" transform="rotate(190.6 -0.91 -1.01)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-3.40" cy="-1.99" rx="2.10" ry="5.00" transform="rotate(223.4 -3.40 -1.99)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-4.80" cy="-3.87" rx="2.10" ry="5.00" transform="rotate(256.1 -4.80 -3.87)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-4.69" cy="-6.05" rx="2.10" ry="5.00" transform="rotate(288.8 -4.69 -6.05)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-3.08" cy="-7.82" rx="2.10" ry="5.00" transform="rotate(321.5 -3.08 -7.82)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-0.49" cy="-8.64" rx="2.10" ry="5.00" transform="rotate(354.3 -0.49 -8.64)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.45" cy="-7.96" rx="1.51" ry="3.60" transform="rotate(36.0 1.45 -7.96)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="2.47" cy="-6.49" rx="1.51" ry="3.60" transform="rotate(87.4 2.47 -6.49)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="1.63" cy="-4.95" rx="1.51" ry="3.60" transform="rotate(138.9 1.63 -4.95)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-0.44" cy="-4.50" rx="1.51" ry="3.60" transform="rotate(190.3 -0.44 -4.50)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-2.18" cy="-5.49" rx="1.51" ry="3.60" transform="rotate(241.7 -2.18 -5.49)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-2.28" cy="-7.16" rx="1.51" ry="3.60" transform="rotate(293.1 -2.28 -7.16)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="-0.66" cy="-8.26" rx="1.51" ry="3.60" transform="rotate(344.6 -0.66 -8.26)" fill="url(#kukHeadg)" stroke="#C8C2B2" stroke-width=".45"/><ellipse cx="0" cy="-8" rx="3.2" ry="2.6" fill="#F3EEDD"/></symbol></defs></svg><div class="altar" id="altar"><div class="candle" aria-hidden="true"><span class="ember"></span><span class="ember"></span><span class="ember"></span><span class="ember"></span><span class="glow"></span><span class="flame"></span><span class="wick"></span><span class="wax"></span></div><div class="bouquet" id="bouquet"></div><p class="bq-count" id="bqCount" hidden></p></div>
         <h2 id="giveTitle">이름으로 기부하기</h2>
         <p class="sum" id="giveSum"></p>
         <button class="btn btn-ink" type="button" id="donate">추모기부 하기</button>
@@ -638,6 +678,64 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   /* 공간별 후원 링크: 관리자 페이지에서 정한 주소가 있으면 그 주소로, 없으면 기본 주소로 */
   function giveUrl(){ var u=S&&S.donateUrl; return (u&&/^https:\/\/[^\s"'<>]+$/i.test(u))?u:DONUS_URL; }
   var NOTES_PAGE=12;
+  /* ---------- 헌화: 기부자 수만큼 국화가 놓입니다 (기부 전에는 촛불) ---------- */
+  var KUK_SLOTS=[ /* [각도, 줄기 길이, 크기, 뒷줄?] — 앞에서부터 채워져 송이가 늘어도 자리가 바뀌지 않아요 */
+    [0,118,1,0],[-17,106,.94,0],[17,106,.94,0],[-31,92,.88,0],[31,92,.88,0],
+    [-8,138,.8,1],[8,138,.8,1],[-24,128,.76,1],[24,128,.76,1],[-42,80,.8,0],
+    [42,80,.8,0],[0,152,.72,1],[-36,114,.72,1],[36,114,.72,1],[-6,96,.84,0]];
+  var CANDLE_SLOTS=[ /* [가운데에서 x, 바닥에서 y, 크기] — 앞줄 가운데부터 채워져요 */
+    [0,6,.8],[-40,8,.74],[40,8,.74],[-78,13,.66],[78,13,.66],
+    [-20,22,.68],[20,22,.68],[-58,24,.62],[58,24,.62],
+    [0,34,.6],[-38,35,.58],[38,35,.58],[-92,26,.58],[92,26,.58],[-74,36,.54]];
+  function candleRow(donors){
+    var show=Math.min(donors,CANDLE_SLOTS.length), h='<div class="cr"><span class="cr-tray"></span>';
+    for(var i=0;i<show;i++){
+      var c=CANDLE_SLOTS[i];
+      h+='<div class="candle cr-c'+(i===show-1&&donors<=CANDLE_SLOTS.length?' new':'')+'" style="left:calc(50% + '+c[0]+'px);bottom:'+c[1]+'px;--s:'+c[2]+';z-index:'+(100-c[1])+';--g:'+(i*.18).toFixed(2)+'s;--fd:'+(-i*.37).toFixed(2)+'s">'
+        +'<span class="lit"><span class="glow"></span><span class="flame"></span></span><span class="wick"></span><span class="wax"></span></div>';
+    }
+    return h+'</div>';
+  }
+  function renderAltar(donors, mode){
+    var altar=document.getElementById('altar'); if(!altar) return;
+    var bq=document.getElementById('bouquet'), cnt=document.getElementById('bqCount');
+    donors=Math.max(0,Number(donors)||0);
+    if(!donors){ altar.classList.remove('has-flowers'); bq.innerHTML=''; cnt.hidden=true; return; }
+    if(mode!=='flower'){   /* 기본은 촛불: 관리자 페이지에서 국화를 고른 공간만 국화 */
+      bq.innerHTML='<span class="bq-halo"></span>'+candleRow(donors);
+      altar.classList.add('has-flowers');
+      cnt.hidden=false;
+      cnt.innerHTML='촛불 <b>'+donors.toLocaleString('ko-KR')+'</b>개가 켜졌어요';
+      return lightOn(bq);
+    }
+    var show=Math.min(donors,KUK_SLOTS.length), BX=125, BY=196, H=68;
+    var idx=[]; for(var i=0;i<show;i++) idx.push(i);
+    idx.sort(function(a,b){ return (KUK_SLOTS[b][3]-KUK_SLOTS[a][3]) || (a-b); });   /* 뒷줄 먼저 그리기 */
+    var g='';
+    idx.forEach(function(i){
+      var s=KUK_SLOTS[i], a=s[0]*Math.PI/180, L=s[1], sc=s[2];
+      var hx=BX+Math.sin(a)*L, hy=BY-Math.cos(a)*L, size=H*sc;
+      var cx=BX+Math.sin(a)*L*.45+(s[0]>0?-6:s[0]<0?6:0), cy=BY-Math.cos(a)*L*.5;
+      var lf=i%2?1:-1, lx=BX+Math.sin(a)*L*.55, ly=BY-Math.cos(a)*L*.55;
+      g+='<g class="kf'+(s[3]?' back':'')+(i===show-1&&donors<=KUK_SLOTS.length?' new':'')+'" style="--g:'+(i*.14).toFixed(2)+'s;--r0:'+(s[0]>=0?8:-8)+'deg">'
+        +'<g class="kf-sway" style="--d:'+(-i*.73).toFixed(2)+'s;--sd:'+(5.2+(i%4)*.35).toFixed(2)+'s">'
+        +'<path d="M'+(BX+(s[0]/6)).toFixed(1)+' '+(BY-(i%3)*3)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+hx.toFixed(1)+' '+(hy+size*.25).toFixed(1)+'" stroke="'+(s[3]?'#3F6B2E':'#2F5A22')+'" stroke-width="'+(3*sc).toFixed(2)+'" fill="none" stroke-linecap="round"/>'
+        +(sc>.8?'<path d="M'+lx.toFixed(1)+' '+ly.toFixed(1)+' c'+(lf*-10)+' -3 '+(lf*-16)+' -10 '+(lf*-18)+' -17 c'+(lf*9)+' 1 '+(lf*16)+' 8 '+(lf*18)+' 17z" fill="'+(i%2?'#3E7330':'#4A8238')+'"/>':'')
+        +'<use class="kf-head" href="#kukHead" x="'+(hx-size/2).toFixed(1)+'" y="'+(hy-size/2).toFixed(1)+'" width="'+size.toFixed(1)+'" height="'+size.toFixed(1)+'"/>'
+        +'</g></g>';
+    });
+    bq.innerHTML='<span class="bq-halo"></span><svg class="bq" viewBox="0 0 250 206" aria-hidden="true">'+g+'</svg>';
+    altar.classList.add('has-flowers');
+    cnt.hidden=false;
+    cnt.innerHTML='흰 국화 <b>'+donors.toLocaleString('ko-KR')+'</b>송이가 놓였어요';
+    lightOn(bq);
+  }
+  function lightOn(bq){
+    bq.classList.remove('on');
+    if(reduce||!('IntersectionObserver' in window)){ bq.classList.add('on'); return; }
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ bq.classList.add('on'); io.disconnect(); } }); },{threshold:.35});
+    io.observe(bq);
+  }
   var S=null, mine=[], notesShown=NOTES_PAGE, pickedSym='✦';
   var slug=(location.pathname.slice((window.SITE_BASE||'').length).match(/^\/space\/([a-z0-9][a-z0-9-]{1,39})\/?$/)||[])[1]
         || new URLSearchParams(location.search).get('s') || '';
@@ -892,6 +990,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     $('giveSum').innerHTML=f.donors
       ? '지금까지 <b>'+people(f.donors)+'</b>이 '+esc(josa(nm,'을/를'))+' 기억하며<br />함께해 주셨어요.<span class="raised">모인 마음 <b>'+f.sum.toLocaleString('ko-KR')+'원</b></span>'
       : esc(nm)+'의 이름으로<br />첫 마음을 보내 주세요.';
+    renderAltar(f.donors, S.tribute);
 
     /* 기억할 날 */
     $('rememberTitle').textContent=josa(nm,'을/를')+' 기억하는 날, 알려드릴까요';

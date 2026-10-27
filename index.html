@@ -314,8 +314,8 @@
   html.embed .ember{animation-name:emberUpE;}
   @keyframes emberUpE{0%{opacity:0;transform:translate(0,0);}12%{opacity:.9;}70%{opacity:.55;}100%{opacity:0;transform:translate(var(--dx,20px),-440px);}}
   html.embed, html.embed body{overflow:hidden;}
-  /* ▼ 조화 대신 기부(모바일 부고장) 숨김 스위치 — 다시 보이게 하려면 아래 한 줄만 지우세요 ▼ */
-  [data-feature="funeral"]{display:none !important;}
+  /* ▼ 조화 대신 기부(모바일 부고장) 숨김 스위치 — 지금은 보이는 상태입니다.
+     다시 숨기려면 이 주석 바로 아래에 [data-feature="funeral"]{display:none !important;} 한 줄을 넣으세요 ▼ */
 
   /* ---------- 모바일 부고장 '준비 중' 안내 ---------- */
   .soon-scrim{position:fixed;inset:0;z-index:200;background:rgba(10,12,30,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
@@ -420,7 +420,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
         <div class="t-ico">✉</div>
         <h3 class="serif">조화 대신 기부<br />모바일 부고장</h3>
         <p>장례를 준비하는 상주를 위한 길입니다. 추모기부 링크가 담긴 모바일 부고장을 만들어 조문객에게 공유하세요. 조화와 부의금 대신 전해진 마음은 고인의 이름으로 소아암 어린이에게 닿습니다.</p>
-        <a class="t-link" href="https://checkout-green-memory.com/" target="_blank" rel="noopener">모바일 부고장 만들기 →</a>
+        <a class="t-link" href="https://checkout-green-memory.com/#/create?org=soaam" target="_blank" rel="noopener">모바일 부고장 만들기 →</a>
       </div>
     </div>
   </div>
@@ -503,7 +503,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
       <div class="fc-eyebrow">모바일 부고장</div>
       <h3 class="serif">"조화 대신, 고인의 이름으로<br />소아암 어린이를 도와주세요"</h3>
       <p>부고장 속 링크는 고인의 추모 공간으로 이어집니다. 조문객의 기부는 별이 되어 밤하늘 추모의 벽에 남습니다.</p>
-      <a class="btn btn-star" href="https://checkout-green-memory.com/" target="_blank" rel="noopener">모바일 부고장 만들기</a>
+      <a class="btn btn-star" href="https://checkout-green-memory.com/#/create?org=soaam" target="_blank" rel="noopener">모바일 부고장 만들기</a>
     </div>
   </div>
 </section>
@@ -560,10 +560,10 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
       <div class="faq-item">
         <button class="faq-q">
           <span class="fq-num">5</span>
-          <span class="fq-text">모바일 부고장은 언제 이용할 수 있나요?</span>
+          <span class="fq-text">모바일 부고장 누르면 '체크아웃'이라는 회사로 넘어가던데요?</span>
           <svg class="fq-chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">모바일 부고장 서비스는 현재 준비 중입니다. 더 따뜻하고 편리하게 이용하실 수 있도록 정성껏 준비하고 있으니 조금만 기다려 주세요. 준비가 끝나면 이 페이지에서 바로 만드실 수 있도록 안내해 드리겠습니다.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">체크아웃은 한국소아암재단 추모기부와 관련되어서 협약을 맺은 곳입니다. 다만, 체크아웃의 모바일 부고장을 이용하는 비용은 한국소아암재단과 무관합니다.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
@@ -940,7 +940,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
 /* 모바일 부고장: 서비스 준비 전까지 '준비 중' 안내를 띄웁니다.
    준비가 끝나면 아래 OBIT_READY 를 true 로 바꾸면 원래 링크(체크아웃)로 바로 연결됩니다. */
 (function(){
-  var OBIT_READY=false;
+  var OBIT_READY=true;
   if(OBIT_READY) return;
   var scrim=document.createElement('div'); scrim.className='soon-scrim'; scrim.setAttribute('role','dialog'); scrim.setAttribute('aria-modal','true'); scrim.setAttribute('aria-labelledby','soonTitle');
   scrim.innerHTML='<div class="soon-card"><button type="button" class="sc-x" aria-label="닫기">×</button>'

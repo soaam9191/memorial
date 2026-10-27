@@ -255,6 +255,9 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
           <label for="inName">고인의 성함 또는 애칭</label>
           <input type="text" id="inName" placeholder="예) 김영순 님, 큰아버지" maxlength="20" />
 
+          <label for="inApplicant">신청하시는 분 성함</label>
+          <input type="text" id="inApplicant" placeholder="예) 김하늘" maxlength="20" autocomplete="name" />
+
           <label>신청하시는 분은 고인과 어떤 관계이신가요</label>
           <div class="chips" id="relChips">
             <button type="button" class="chip" data-v="배우자">배우자</button>
@@ -342,9 +345,6 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
           <div id="openDateWrap" style="display:none;margin-top:12px;">
             <input type="date" id="inOpenDate" />
           </div>
-
-          <label for="inApplicant">신청하시는 분 성함</label>
-          <input type="text" id="inApplicant" placeholder="예) 김하늘" maxlength="20" autocomplete="name" />
 
           <label for="inPhone">연락받으실 전화번호</label>
           <input type="tel" id="inPhone" placeholder="010-0000-0000" maxlength="13" />
@@ -630,7 +630,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     if(!document.getElementById('agree').checked){ showToast('개인정보 및 사진(초상권) 활용 동의가 필요해요.'); return; }
     grab();
     if(!state.name){ showToast('고인의 성함을 적어 주세요.'); goStep(1); return; }
-    if(!state.applicant){ showToast('신청하시는 분의 성함을 적어 주세요.'); goStep(3); setTimeout(function(){ var el=document.getElementById('inApplicant'); if(el) el.focus(); },400); return; }
+    if(!state.applicant){ showToast('신청하시는 분의 성함을 적어 주세요.'); goStep(1); setTimeout(function(){ var el=document.getElementById('inApplicant'); if(el) el.focus(); },400); return; }
     if(!state.phone){ showToast('연락받으실 전화번호를 적어 주세요.'); goStep(3); return; }
     sendApplication();
   };
