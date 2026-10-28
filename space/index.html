@@ -462,7 +462,10 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   .bq .kf.back .kf-head{opacity:.96;}
   .bq .kf.new .kf-head{filter:drop-shadow(0 2px 3px rgba(70,60,40,.28)) drop-shadow(0 0 6px rgba(255,214,140,.55));}
   @keyframes kfGrow{0%{transform:scale(.2) rotate(var(--r0,0deg));opacity:0;}60%{opacity:1;}100%{transform:scale(1) rotate(0);opacity:1;}}
-  @keyframes kfSway{0%,100%{transform:rotate(-1.6deg);}50%{transform:rotate(1.6deg);}}
+  @keyframes kfSway{0%,100%{transform:rotate(-2.2deg);}50%{transform:rotate(2.2deg);}}
+  .kf-leaf{transform-box:fill-box;transform-origin:7.7% 95.7%;animation:kfLeaf 3.6s ease-in-out var(--d,0s) infinite;}
+  @keyframes kfLeaf{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(4deg);}}
+  @media (prefers-reduced-motion: reduce){ .kf-leaf{animation:none;} }
   @keyframes kfBreath{0%,100%{transform:scale(.97);}50%{transform:scale(1.03);}}
   .bq-count{font-family:var(--serif);font-size:13.5px;letter-spacing:.06em;color:var(--gold-deep,#9A7A3E);margin:2px 0 14px;opacity:0;transform:translateY(6px);transition:opacity .8s ease .6s,transform .8s ease .6s;}
   .bouquet.on + .bq-count{opacity:1;transform:none;}
@@ -712,11 +715,19 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   var WC=(window.SITE_BASE||'')+'/space/img/';
   var WC_PICK=['bloom','side','side','bloom','bloom','bud','side','bloom','bud','side'];
   var WC_SIZE={bloom:[90,63],side:[68,71],bud:[34,33]};
+  var LEAF_AT=[1,1,1,0,1,0,0,0,0,0];   /* 잎이 달린 줄기를 쓸 송이 */
+  /* 수채화 줄기(잎 달린 것/없는 것)를 밑동→꽃 방향으로 늘이고 돌려서 붙입니다 */
+  function stemSvg(bx,by,hx,hy,leaf,flip){
+    var sg=flip?-1:1, vx=hx-bx, vy=hy-by;
+    var s=Math.sqrt(vx*vx+vy*vy)/Math.sqrt(91*91+660*660);
+    var rot=(Math.atan2(vy,vx)-Math.atan2(-660,-91*sg))*180/Math.PI;
+    return '<g transform="translate('+bx.toFixed(1)+' '+by.toFixed(1)+') rotate('+rot.toFixed(2)+') scale('+(sg*s).toFixed(4)+' '+s.toFixed(4)+') translate(-107 -664)">'
+      +'<image href="'+WC+'kuk-stem.webp" width="123" height="668"/>'
+      +(leaf?'<g class="kf-leaf"><image href="'+WC+'kuk-leaf.webp" x="79" y="77" width="207" height="281"/></g>':'')+'</g>';   /* 잎은 줄기 마디에 붙어 함께 흔들리고, 마디를 축으로 살랑여요 */
+  }
   function miniBouquet(){
     return '<svg viewBox="-30 -46 60 78" aria-hidden="true">'
-      +'<path d="M0 30 Q-4 6 -13 -22 M0 30 Q2 4 12 -24 M0 30 Q0 2 0 -30 M0 30 Q-2 10 -6 -8" stroke="#557A40" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
-      +'<image href="'+WC+'kuk-leafL.webp" x="-28" y="2" width="30" height="11" transform="rotate(-20 -13 7)"/>'
-      +'<image href="'+WC+'kuk-leafR.webp" x="0" y="-2" width="26" height="21" transform="rotate(12 13 8)"/>'
+      +stemSvg(-1,30,-12,-20,true,true)+stemSvg(1,30,12,-22,true,false)+stemSvg(0,30,0,-28,false,false)+stemSvg(0,30,-5,-8,false,true)
       +'<image href="'+WC+'kuk-side.webp" x="0" y="-38" width="26" height="27"/>'
       +'<g transform="scale(-1 1)"><image href="'+WC+'kuk-side.webp" x="1" y="-36" width="25" height="26"/></g>'
       +'<image href="'+WC+'kuk-bud.webp" x="-12" y="-16" width="13" height="12"/>'
@@ -753,9 +764,6 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     var idx=[]; for(var i=0;i<show;i++) idx.push(i);
     idx.sort(function(a,b){ return (KUK_SLOTS[b][3]-KUK_SLOTS[a][3]) || (a-b); });   /* 뒷줄 먼저 그리기 */
     var g='';
-    if(show<3) g+='<image href="'+WC+'kuk-leafR.webp" x="'+(BX-2)+'" y="'+(BY-70)+'" width="46" height="37" transform="rotate(8 '+(BX+21)+' '+(BY-52)+')"/>';
-    if(show>=3) g+='<image href="'+WC+'kuk-leafR.webp" x="'+(BX-6)+'" y="'+(BY-88)+'" width="66" height="53" transform="rotate(14 '+(BX+27)+' '+(BY-62)+')"/>'
-                  +'<image href="'+WC+'kuk-leafL.webp" x="'+(BX-74)+'" y="'+(BY-74)+'" width="70" height="25" transform="rotate(-18 '+(BX-39)+' '+(BY-62)+')"/>';
     idx.forEach(function(i){
       var s=KUK_SLOTS[i], a=s[0]*Math.PI/180, L=s[1], sc=s[2];
       var hx=BX+Math.sin(a)*L, hy=BY-Math.cos(a)*L;
@@ -763,7 +771,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
       var kind=WC_PICK[i], w=WC_SIZE[kind][0]*sc, h=WC_SIZE[kind][1]*sc, flip=(kind==='side'&&s[0]<0)||(kind==='bloom'&&i%2);
       g+='<g class="kf'+(s[3]?' back':'')+(i===show-1?' new':'')+'" style="--g:'+(i*.14).toFixed(2)+'s;--r0:'+(s[0]>=0?8:-8)+'deg">'
         +'<g class="kf-sway" style="--d:'+(-i*.73).toFixed(2)+'s;--sd:'+(5.2+(i%4)*.35).toFixed(2)+'s">'
-        +'<path d="M'+(BX+(s[0]/6)).toFixed(1)+' '+(BY-(i%3)*3)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+hx.toFixed(1)+' '+(hy+h*.3).toFixed(1)+'" stroke="'+(s[3]?'#6B8A55':'#557A40')+'" stroke-width="'+(2.6*sc).toFixed(2)+'" fill="none" stroke-linecap="round" opacity=".92"/>'
+        +stemSvg(BX+(s[0]/6), BY-(i%3)*3, hx, hy+h*.32, LEAF_AT[i], s[0]<0||(s[0]===0&&i%2===1))
         +'<g'+(flip?' transform="translate('+(2*hx).toFixed(1)+' 0) scale(-1 1)"':'')+'><image class="kf-head" href="'+WC+'kuk-'+kind+'.webp" x="'+(hx-w/2).toFixed(1)+'" y="'+(hy-h/2).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'"/></g>'
         +'</g></g>';
     });
