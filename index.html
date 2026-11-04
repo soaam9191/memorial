@@ -334,6 +334,78 @@
   .soon-card .sc-x{position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(237,234,245,.55);font-size:22px;cursor:pointer;line-height:1;padding:4px;}
   .soon-card .sc-x:hover{color:#fff;}
   @media (prefers-reduced-motion: reduce){.soon-card .sc-star{animation:none;}.soon-card{transition:none;}}
+
+  /* 추모기부 하기 버튼 */
+.btn-donate {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #e8e4ff 100%);
+  color: #1e1b4b;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 18px rgba(200, 190, 255, 0.55),
+              0 0 40px rgba(160, 150, 255, 0.25);
+  animation: donateGlow 2.8s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 별빛이 스쳐 지나가는 효과 */
+.btn-donate::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: skewX(-20deg);
+  animation: donateShine 3.5s ease-in-out infinite;
+}
+
+.btn-donate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(220, 210, 255, 0.8),
+              0 0 60px rgba(160, 150, 255, 0.4);
+}
+
+.btn-donate-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.25s ease;
+}
+.btn-donate:hover .btn-donate-arrow {
+  transform: translateX(4px);
+}
+
+@keyframes donateGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(200, 190, 255, 0.55), 0 0 40px rgba(160, 150, 255, 0.25); }
+  50%      { box-shadow: 0 0 28px rgba(220, 210, 255, 0.85), 0 0 60px rgba(160, 150, 255, 0.4); }
+}
+
+@keyframes donateShine {
+  0%   { left: -75%; }
+  60%  { left: 125%; }
+  100% { left: 125%; }
+}
+
+/* 움직임 줄이기 설정을 켠 사용자에게는 애니메이션 끄기 */
+@media (prefers-reduced-motion: reduce) {
+  .btn-donate, .btn-donate::after { animation: none; }
+}
+
+  /* 첫 화면 두 버튼 크기 통일 */
+.btn-star,
+.btn-ghost-light,
+.btn-donate {
+  width: 220px;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 </style>
 <script>
 /* 사이트가 열린 위치(기본 주소)를 알아냅니다.
@@ -388,7 +460,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     <p class="lead">사랑하는 사람을 잃은 슬픔이, 병원에서 오늘을 견디는 아이에게 희망으로 닿도록. 그리운 이름으로 기부하고, 밤하늘에 별 하나를 켜 주세요.</p>
     <div class="hero-ctas">
       <a class="btn btn-star" href="#tracks">추모 공간 신청하기</a>
-      <a class="btn btn-ghost-light" href="https://secure.donus.org/soaam/pay/step1_direct?dontype=P40101&theme=b009" target="_blank" rel="noopener">추모기부 하기</a>
+      <a class="btn btn-donate" href="https://secure.donus.org/soaam/pay/step1_direct?dontype=P40101&theme=b009" target="_blank" rel="noopener">추모기부 하기</a>
     </div>
   </div>
   <div class="scroll-hint">아래로</div>
