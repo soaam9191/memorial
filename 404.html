@@ -690,7 +690,7 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
 <script>
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DONUS_URL='https://secure.donus.org/soaam/pay/step1?dontype=P40101&theme=b009';
+  var DONUS_URL='https://secure.donus.org/soaam/pay/step1_direct?dontype=P40101&theme=b009';
   /* 공간별 후원 링크: 관리자 페이지에서 정한 주소가 있으면 그 주소로, 없으면 기본 주소로 */
   function giveUrl(){ var u=S&&S.donateUrl; return (u&&/^https:\/\/[^\s"'<>]+$/i.test(u))?u:DONUS_URL; }
   var NOTES_PAGE=12;
