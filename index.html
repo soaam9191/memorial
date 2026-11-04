@@ -373,6 +373,18 @@
   .fund-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 6px rgba(255,255,255,.09),0 0 40px rgba(220,210,255,.65);}
   @media (max-width:560px){ .fund{padding:42px 18px 36px;} .fund-stats b{font-size:19px;} .fund-stats span{font-size:11.5px;} }
   @media (prefers-reduced-motion: reduce){ .fund-stars i,.fund-live .dot:after{animation:none;} }
+
+  .fund-guide{margin:40px auto 0;max-width:640px;padding-top:30px;border-top:1px solid rgba(237,234,245,.14);}
+  .fg-title{font-family:var(--serif);font-size:16px;color:#F3EBD8;}
+  .fg-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px;text-align:left;}
+  @media (max-width:620px){ .fg-steps{grid-template-columns:minmax(0,1fr);} }
+  .fg-step{display:flex;gap:14px;align-items:flex-start;padding:18px 18px 16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(237,234,245,.12);}
+  .fg-ic{flex:none;width:38px;height:38px;border-radius:50%;background:rgba(255,227,160,.14);display:flex;align-items:center;justify-content:center;}
+  .fg-ic svg{width:18px;height:18px;fill:rgba(255,227,160,.25);stroke:#FFE3A0;stroke-width:1.4;stroke-linejoin:round;}
+  .fg-step b{display:block;font-size:14.5px;font-weight:600;color:#F6EEDC;}
+  .fg-step p{margin-top:6px;font-size:13px;line-height:1.7;color:rgba(237,234,245,.75);word-break:keep-all;}
+  .fg-step a{display:inline-block;margin-top:10px;font-size:13px;color:#FFE3A0;text-decoration:none;border-bottom:1px solid rgba(255,227,160,.4);}
+  .fg-step a:hover{color:#FFF1C9;border-bottom-color:#FFF1C9;}
   .tg-give-wrap{display:flex;justify-content:center;margin-top:44px;}
   .tg-give-wrap .tg-card{width:100%;max-width:560px;}
   .gb-head{margin-top:110px;}
@@ -596,6 +608,19 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
         </div>
         <p class="fund-asof" id="fundAsOf"></p>
         <a class="fund-btn" href="https://secure.donus.org/soaam/pay/step1_direct?dontype=P40101&amp;theme=b009" target="_blank" rel="noopener">추모기부 하기</a>
+        <div class="fund-guide">
+          <p class="fg-title">그분의 이름으로 기부하고 싶다면</p>
+          <div class="fg-steps">
+            <div class="fg-step">
+              <span class="fg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5c.9 5.2 3.3 7.6 8.5 8.5-5.2.9-7.6 3.3-8.5 8.5-.9-5.2-3.3-7.6-8.5-8.5 5.2-.9 7.6-3.3 8.5-8.5z"/></svg></span>
+              <div><b>추모 공간을 만들어요</b><p>사진과 이야기를 남겨 신청하면, 재단이 그분만의 추모 공간을 열어 드려요.</p><a href="#tracks">추모 공간 신청하기 →</a></div>
+            </div>
+            <div class="fg-step">
+              <span class="fg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg></span>
+              <div><b>그 공간에서 기부해요</b><p>가족과 지인 누구나 추모 공간의 기부 버튼으로 그분의 이름으로 마음을 보낼 수 있어요.</p><a href="/spaces/">추모 공간 둘러보기 →</a></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
