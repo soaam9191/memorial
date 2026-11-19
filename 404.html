@@ -1023,6 +1023,8 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
     var giveLabel=(S.giveLabel&&String(S.giveLabel).trim())||josa(nm,'을/를')+' 위해 기부하기';   /* 관리자 페이지에서 정한 문구가 있으면 그 문구로 */
     $('giveTitle').textContent=giveLabel;
     $('ctaGive').textContent=giveLabel;
+    /* 상단 기부 버튼은 아래로 내려가지 않고 바로 기부 링크(새 창)로 */
+    $('ctaGive').href=giveUrl(); $('ctaGive').target='_blank'; $('ctaGive').rel='noopener';
     var f=S.fund||{sum:0,donors:0};
     $('giveSum').innerHTML=f.donors
       ? '지금까지 <b>'+people(f.donors)+'</b>이 '+esc(josa(nm,'을/를'))+' 기억하며<br />함께해 주셨어요.<span class="raised">모인 마음 <b>'+f.sum.toLocaleString('ko-KR')+'원</b></span>'
@@ -1195,7 +1197,8 @@ document.write('<script src="'+window.SITE_BASE+'/config.js"><\/script>');
   /* 부드러운 이동 */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(e){
-      var t=document.querySelector(a.getAttribute('href')); if(!t) return;
+      var h=a.getAttribute('href')||''; if(h.charAt(0)!=='#') return;   /* 바깥 링크로 바뀐 버튼은 그대로 이동 */
+      var t=document.querySelector(h); if(!t) return;
       e.preventDefault(); t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
     });
   });
